@@ -17,7 +17,7 @@ class Stack:
      def size(self):
          return len(self.items)
 
-
+#decnp- decimal number
 def ConvertToBase(decno, base):
     digits="0123456789ABCDEF"
     remainstack=Stack()
