@@ -1,3 +1,5 @@
+#https://leetcode.com/problems/maximal-rectangle/
+
 def mah(lst):
     sta,finalL=[],[]
     it=0
