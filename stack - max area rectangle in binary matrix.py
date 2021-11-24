@@ -84,22 +84,3 @@ def maxrect():
         mx=max(mx, mx1)
 
     return mx
-
-print(maxrect())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
