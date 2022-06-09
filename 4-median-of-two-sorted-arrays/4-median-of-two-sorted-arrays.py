@@ -31,5 +31,4 @@ class Solution:
         else:
             median=nums[mid]
         
-        print(median)
         return median
