@@ -21,7 +21,6 @@
     
 
 #BETTER SOLUTION    
-    
 #Runtime: 20 ms, faster than 99.27% of Python3 online submissions for Backspace String Compare.
 #Memory Usage: 14.1 MB, less than 93.90% of Python3 online submissions for Backspace String Compare.
 
