@@ -1,6 +1,7 @@
 class Solution:
-    # @return an integer
     def lengthOfLongestSubstring(self, s):
+        
+        #using set
         l=0
         charset=set()
         res=0
@@ -12,24 +13,8 @@ class Solution:
             res=max(res,r-l+1)
         
         return res
-            
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+                 
+        #using dictionary
 #         start = maxLength = 0
 #         usedChar = {}
         
