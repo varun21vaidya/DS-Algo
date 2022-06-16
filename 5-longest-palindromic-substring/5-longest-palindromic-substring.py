@@ -13,7 +13,7 @@ class Solution:
                 for j in range(i+1,len(s)):  
                     if s[i] == s[j]:  #if the chars matches
                         # if len sliced substring is just one letter if the characters are equal, we can say they are palindomr dp[i][j] =True 
-                        #if the slicied sub_string is longer than 1, then we should check if the inner string is also palindrom (check dp[i+1][j-1] is True)
+                        #if the slicied substring is longer than 1, then we should check if the inner string is also palindrom (check dp[i+1][j-1] is True)
                         if j-i ==1 or dp[i+1][j-1] is True:
                             dp[i][j] = True
                             # we also need to keep track of the maximum palindrom sequence 
