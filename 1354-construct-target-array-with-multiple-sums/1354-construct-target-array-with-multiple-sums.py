@@ -1,5 +1,19 @@
 class Solution:
     def isPossible(self, target: List[int]) -> bool:
+        
+#       Recursive Solution
+#       Instead of making [1,1,1] into [9,3,5]
+#       we will make 9,3,5 to 1,1,1
+#       First take sum of array
+#       take maximum value
+#       then get diff of both
+#       and subract that diff from maximum
+
+#       to make things easy we will directly update with index
+#       instead of using sort or direct using max
+
+#       to improve efficiency use mod for updating arr[maxx]
+
         #summ is total of array and maxx is index of maximum value of array
         summ,maxx=0,0
         for i in range(len(target)):
