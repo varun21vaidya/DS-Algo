@@ -30,7 +30,7 @@ class Solution:
 	   # now come to calulation part, for each sliding window we will 
 	   # either update count by 1 or if its not there create count with default 0 +1
 	    
-	   # and in the ans part, if both dicitonaries are same append index of i i.e start to res
+	   # and in the ans part, if both dicitonaries are same append index of i ie start to res
 	   # and with each slide drop arr[i] from dictionary value and if its 0 remove it
         
         
