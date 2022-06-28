@@ -13,9 +13,9 @@ class Solution:
 
         i,j,res=0,0,[]
         dq=deque()
-
+        N=len(A)
 #       sliding window loop
-        while j<len(A):
+        while j<N:
             
             # if new element is greater than previous elements
             # then now we dont need previous elements
