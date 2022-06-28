@@ -9,19 +9,18 @@ class Solution:
 #       ie as window moves we cant determine what will be next max, is it from remaining i to j 
 #       ie remaining array or is new number added ie new j
 #       so for that we need to store that info in some data structure 
+
         from collections import deque
         i,j,res=0,0,[]
         dq=deque()
-        if len(A)==1:
-            return A
+
         while j<len(A):
             
-            # if new element is greater than first element then its maximum
-            # and now we dont need previous elements
-            # as until this becomes the element to be removed its lower elements 
-            # ie candidates to become next maxx will be added and until then this will be max
-            
-            
+            # if new element is greater than previous elements
+            # then now we dont need previous elements
+            # as until this becomes the element to be removed, its lower elements 
+            # ie next numbers will be next maxx which will be added and until then this will be max
+            # and everytime some greater number adds, previous numbers will be deprecated
             while dq and dq[-1]<A[j]:
                 dq.pop()
             dq.append(A[j])
