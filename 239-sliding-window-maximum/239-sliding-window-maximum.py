@@ -11,7 +11,6 @@ class Solution:
 #       so for that we need to store that info in some data structure 
 #       so we use double sided queue, and its first value will be always max
 
-        from collections import deque
         i,j,res=0,0,[]
         dq=deque()
 
