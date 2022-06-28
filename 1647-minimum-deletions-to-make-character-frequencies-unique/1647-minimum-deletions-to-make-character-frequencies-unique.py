@@ -3,9 +3,9 @@ class Solution:
         mapp={}
         for i in s:
             mapp[i]=mapp.get(i,0)+1
-        print(mapp)
+        # print(mapp)
         freq=list(mapp.values())
-        print(freq)
+        # print(freq)
         cnt=0
         for i in range(len(freq)):
             if freq[i] in freq[:i]+freq[i+1:]:
