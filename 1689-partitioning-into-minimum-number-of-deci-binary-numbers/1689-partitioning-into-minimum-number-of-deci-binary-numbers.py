@@ -7,4 +7,4 @@ class Solution:
         # for 8 will need 1,1,1...
         # so just return the max digit
         
-        return max([int(a) for a in n])
+        return max(n)
