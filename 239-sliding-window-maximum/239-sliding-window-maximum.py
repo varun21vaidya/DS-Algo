@@ -26,6 +26,7 @@ class Solution:
             dq.append(A[j])
                 
             # print(dq)
+            
             if j-i+1==B:
                 # the element at front will always be max element
                 res.append(dq[0])
