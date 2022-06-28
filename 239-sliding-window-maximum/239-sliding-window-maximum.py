@@ -9,7 +9,7 @@ class Solution:
 #       ie as window moves we cant determine what will be next max, is it from remaining i to j 
 #       ie remaining array or is new number added ie new j
 #       so for that we need to store that info in some data structure 
-#       so we use double sided queue
+#       so we use double sided queue, and its first value will be always max
 
         from collections import deque
         i,j,res=0,0,[]
