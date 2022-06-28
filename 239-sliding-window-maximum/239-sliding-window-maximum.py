@@ -27,6 +27,7 @@ class Solution:
                 
             # print(dq)
             
+#           sliding window condition, window reached
             if j-i+1==B:
                 # the element at front will always be max element
                 res.append(dq[0])
