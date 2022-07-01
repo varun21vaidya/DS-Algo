@@ -1,5 +1,7 @@
 class Solution:
     def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
+        
+#       First sort the 2D array according to the maximum numberOfUnitsPerBox to get max total
         container=sorted(boxTypes, key=lambda box: box[1],reverse=True)
         total=0
         # print(container)
