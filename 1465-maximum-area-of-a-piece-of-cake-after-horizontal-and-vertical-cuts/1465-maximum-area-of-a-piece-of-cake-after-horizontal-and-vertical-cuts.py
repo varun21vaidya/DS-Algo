@@ -18,6 +18,8 @@ class Solution:
         ver.append(w)
         hori.sort()
         ver.sort()
+        
+        
         l=0
         b=0
         
@@ -25,4 +27,5 @@ class Solution:
             l=max(l,hori[i]-hori[i-1])
         for j in range(len(ver)):
             b=max(b,ver[j]-ver[j-1])
+            
         return l*b%(10**9 + 7)
