@@ -24,6 +24,7 @@ class Solution:
         
         for i in range(len(hori)):
             l=max(l,hori[i]-hori[i-1])
+            
         for j in range(len(ver)):
             b=max(b,ver[j]-ver[j-1])
             
