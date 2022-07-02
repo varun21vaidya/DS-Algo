@@ -19,9 +19,8 @@ class Solution:
         hori.sort()
         ver.sort()
         
-        
-        l=0
-        b=0
+#       max height and width
+        l,b=0,0
         
         for i in range(len(hori)):
             l=max(l,hori[i]-hori[i-1])
