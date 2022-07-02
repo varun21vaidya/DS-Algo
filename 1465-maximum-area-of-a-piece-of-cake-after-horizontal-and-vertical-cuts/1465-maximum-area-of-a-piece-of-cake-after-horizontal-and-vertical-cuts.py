@@ -11,6 +11,7 @@ class Solution:
 #       now in each array we will calculate max diff to get max width and max height
 #       and then calculate area and take modulo of 10^9 + 7
 
+
         hori.append(0)
         hori.append(h)
         ver.append(0)
