@@ -20,6 +20,7 @@ class Solution:
         ver.sort()
         l=0
         b=0
+        
         for i in range(len(hori)):
             l=max(l,hori[i]-hori[i-1])
         for j in range(len(ver)):
