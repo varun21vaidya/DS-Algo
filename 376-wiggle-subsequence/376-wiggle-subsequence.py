@@ -15,6 +15,7 @@ class Solution:
 #       if last element diff is opposite sign of current element diff
 #       ie for each diff it assumes True or False
 #       True, if current element greater than previous else false
+#       and with each valid condition length of valid elements for wiggle sequence increases
 
         last,length=2,1
         
