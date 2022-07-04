@@ -27,8 +27,7 @@ class Solution:
                 res2[i]=res2[i+1]+1
         # print(res2)
         
-        
+        final=0
         for i in range(len(ratings)):
-            res[i]=max(res[i],res2[i])
-        # print(res)
-        return sum(res)
+            final+=max(res[i],res2[i])
+        return final
