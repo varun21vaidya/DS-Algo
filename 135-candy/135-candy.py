@@ -14,7 +14,7 @@ class Solution:
         #             changed=True
         # return sum(res)
     
-        res,res2=[0 for i in range(len(ratings))],[1 for i in range(len(ratings))]
+        res,res2=[0 for i in range(len(ratings))],[0 for i in range(len(ratings))]
         res[0]=1
         res2[len(ratings)-1]=1
         for i in range(1,len(ratings)):
