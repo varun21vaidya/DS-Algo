@@ -1,6 +1,10 @@
 class Solution:
+    
     def candy(self, ratings):
-        count=0
+        
+#       Brute force - time O(n^2) space O(n)
+        
+        # count=0
         # res=[1 for i in range(len(ratings))]
         # changed=True
         # while changed:
@@ -14,6 +18,7 @@ class Solution:
         #             changed=True
         # return sum(res)
 
+#        Improved O(n), O(n)
         
 #       iterates the arrays first from left and then from right
         res,res2=[1 for i in range(len(ratings))],[1 for i in range(len(ratings))]
