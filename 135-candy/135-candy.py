@@ -13,7 +13,9 @@ class Solution:
         #             res[i]=res[i+1]+1
         #             changed=True
         # return sum(res)
-    
+
+        
+#       iterates the arrays first from left and then from right
         res,res2=[1 for i in range(len(ratings))],[1 for i in range(len(ratings))]
         res[0]=1
         res2[len(ratings)-1]=1
@@ -27,6 +29,7 @@ class Solution:
                 res2[i]=res2[i+1]+1
         # print(res2)
         
+#       get max candies from both arrays
         final=0
         for i in range(len(ratings)):
             final+=max(res[i],res2[i])
