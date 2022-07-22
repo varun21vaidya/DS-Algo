@@ -14,7 +14,7 @@ class Solution:
                 lefttail= lefttail.next
                 
             else:
-                righttail.next = head    #greater than or eaqual to xvalues add to left nodelist
+                righttail.next = head  #greater than or eaqual to xvalues add to left nodelist
                 righttail= righttail.next
                 
             
