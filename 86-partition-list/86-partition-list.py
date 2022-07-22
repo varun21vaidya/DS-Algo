@@ -29,3 +29,8 @@ class Solution:
         righttail.next = None           #point last node of right list to Null            
         
         return left.next                #return head of combined list
+    
+    
+        #as we have not created saperate linked list as left and right but just pointed head
+        #to dummy nodes that were created once only 
+        #so technically no extra space was used so O(1) constant space solution.
