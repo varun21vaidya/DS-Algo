@@ -7,5 +7,5 @@ class Solution:
                 num_before = i - num
                 if num_before >= 0:
                     dp[i] += dp[num_before]
-            print(dp)
+            # print(dp)
         return dp[target]
