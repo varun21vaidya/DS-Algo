@@ -44,6 +44,10 @@ class Solution:
 #         return len(sub)
     
     
+    
+    
+#     Implemented bisect in binary search for interviews
+
         def binary_serach_left(arr,x):
             l,h=0, len(arr)-1
             while l<h:
