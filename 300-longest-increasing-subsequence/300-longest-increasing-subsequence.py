@@ -33,12 +33,39 @@ class Solution:
 #     ie its closest bigger number
 #     and as we modify the list it will give as final list as longest subsequence
     
+#         sub=[]
+#         for i in nums:
+#             if len(sub)==0 or sub[-1]<i:
+#                 sub.append(i)
+#             else:
+#                 ind= bisect_left(sub,i)
+#                 sub[ind]=i
+            
+#         return len(sub)
+    
+    
+        def binary_serach_left(arr,x):
+            l,h=0, len(arr)-1
+            while l<h:
+                mid=l+ (h-l)//2
+                if arr[mid]<x:
+                    l=mid+1
+                else:
+                    h=mid
+            return l
+    
+    
+    
         sub=[]
         for i in nums:
             if len(sub)==0 or sub[-1]<i:
                 sub.append(i)
             else:
-                ind= bisect_left(sub,i)
+                ind= binary_serach_left(sub,i)
                 sub[ind]=i
             
         return len(sub)
+    
+    
+    
+
