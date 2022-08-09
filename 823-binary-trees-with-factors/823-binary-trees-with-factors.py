@@ -1,7 +1,11 @@
 class Solution:
     def numFactoredBinaryTrees(self, arr: List[int]) -> int:
+        
+# first sort the array to get the numbers accordingly so we can take their mods with ease
+# then user 
+
         arr.sort()
-        mapp, ans = defaultdict(), 0
+        mapp, ans = dict(), 0
         for num in arr:
             ways, limit = 1, sqrt(num)
             for factorA in arr:
