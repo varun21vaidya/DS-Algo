@@ -12,7 +12,7 @@ var firstUniqChar = function(s) {
             mapp[ele]=1
         }
     }
-     console.log(mapp)
+     // console.log(mapp)
    for (const key of Object.keys(mapp)){
         if (mapp[key]===1){
             return s.indexOf(key)
