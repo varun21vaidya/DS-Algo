@@ -14,5 +14,3 @@ class Solution:
             res+=1
             if remaining<=totallen//2:
                 return res
-        return res
-                
