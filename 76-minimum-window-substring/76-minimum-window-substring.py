@@ -24,6 +24,8 @@ class Solution:
 # so if we have minimum value in map we will return its substring else empty string
 
 
+        if len(s) < len(t):
+            return ""
         mapp = Counter(list(t))
         count = sum(mapp.values())
         res = len(s)
