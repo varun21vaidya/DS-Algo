@@ -1,6 +1,9 @@
 class Solution:
     def isPossible(self, nums: List[int]) -> bool:
         
+        
+        # TimeComplexity: O(n)
+        # SpaceComplexity: O(n)
         # create two counter dictionaries one for tracking occurances of nums
         # and other for next number in the already filled subsequence
         # if number is not in freq or has lost all its occurance move ahed
