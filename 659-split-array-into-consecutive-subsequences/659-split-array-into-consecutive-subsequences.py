@@ -5,7 +5,6 @@ class Solution:
         for i in nums:
             if not freqMap[i]:
 	            continue
-            freqMap[i]-=1
             if nextMap[i]:
                     
                 nextMap[i]-=1
@@ -17,6 +16,6 @@ class Solution:
                 nextMap[i+3]+=1
             else:
                 return False
-            
+            freqMap[i]-=1
         return True
                 
