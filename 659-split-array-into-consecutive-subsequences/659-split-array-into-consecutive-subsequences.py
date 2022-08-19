@@ -11,7 +11,7 @@ class Solution:
         # if yes then reduce their occurance also and put their next number in nextMap
         # if nothing works its False
         # but in either true cases, current number will lose its frequency
-        # finally return True
+        # finally return True.
         
         freqMap=Counter(nums)
         nextMap=Counter()
@@ -28,6 +28,7 @@ class Solution:
                 nextMap[i+3]+=1
             else:
                 return False
+            
             freqMap[i]-=1
         return True
                 
