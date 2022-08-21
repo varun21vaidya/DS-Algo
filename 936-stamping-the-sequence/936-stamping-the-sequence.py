@@ -1,5 +1,6 @@
 class Solution:
     def movesToStamp(self, stamp: str, target: str) -> List[int]:
+        
         stamps = []
         stampReplacement = "?" * len(stamp)
         stampReplacementEscaped = r"\?" * len(stamp)
