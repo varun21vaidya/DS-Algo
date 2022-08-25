@@ -1,5 +1,7 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        if len(magazine)<len(ransomNote):
+            return False
         m= Counter(magazine)
         # print(m)
         count=0
