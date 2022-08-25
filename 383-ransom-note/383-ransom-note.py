@@ -1,7 +1,7 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
         m= Counter(magazine)
-        print(m)
+        # print(m)
         count=0
         for r in ransomNote:
             if m[r]>0:
