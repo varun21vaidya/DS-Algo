@@ -16,7 +16,7 @@ class Solution:
         
         if len(magazine)<len(ransomNote):
             return False
-        for r in ransomNote:
+        for r in set(ransomNote):
             if magazine.count(r)<ransomNote.count(r):
                 return False
 
