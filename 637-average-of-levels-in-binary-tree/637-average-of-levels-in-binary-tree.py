@@ -30,23 +30,6 @@ class Solution:
             # print(ressum,level,levelcount)
             calculate(node.left, level+1,ressum,resavg,levelcount)
             calculate(node.right, level+1,ressum,resavg,levelcount)
-
-        #with global
-        # ressum=[]
-        # resavg=[]
-        # levelcount=[]
-        # def calculate(node, level):
-        #     global ressum
-        #     global resavg
-        #     global levelcount
-        #     if node==None: return
-        #     ressum[level]+=node.val
-        #     levelcount[level]+=1
-        #     resavg[level]=ressum[level]/levelcount[level]
-        #     # print(ressum,level,levelcount)
-        #     calculate(node.left, level+1)
-        #     calculate(node.right, level+1)
-            
         
         level=getheight(root)+1
         ressum=[0]*level
@@ -54,9 +37,6 @@ class Solution:
         levelcount=[0]*level
         # print(level)
         calculate(root, 0,ressum,resavg,levelcount)
-        
-        #wih global
-        # calculate(root, 0)
 
         return resavg
         
