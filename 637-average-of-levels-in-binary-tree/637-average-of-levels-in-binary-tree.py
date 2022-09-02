@@ -21,13 +21,8 @@ class Solution:
             return (max(left, right) +1)
                
             
-        ressum=[]
-        resavg=[]
-        levelcount=[]
+
         def calculate(node, level,ressum,resavg,levelcount):
-            # global ressum
-            # global resavg
-            # global levelcount
             if node==None: return
             ressum[level]+=node.val
             levelcount[level]+=1
@@ -36,6 +31,21 @@ class Solution:
             calculate(node.left, level+1,ressum,resavg,levelcount)
             calculate(node.right, level+1,ressum,resavg,levelcount)
 
+        #with global
+        # ressum=[]
+        # resavg=[]
+        # levelcount=[]
+        # def calculate(node, level):
+        #     global ressum
+        #     global resavg
+        #     global levelcount
+        #     if node==None: return
+        #     ressum[level]+=node.val
+        #     levelcount[level]+=1
+        #     resavg[level]=ressum[level]/levelcount[level]
+        #     # print(ressum,level,levelcount)
+        #     calculate(node.left, level+1)
+        #     calculate(node.right, level+1)
             
         
         level=getheight(root)+1
@@ -44,21 +54,13 @@ class Solution:
         levelcount=[0]*level
         # print(level)
         calculate(root, 0,ressum,resavg,levelcount)
+        
+        #wih global
+        # calculate(root, 0)
+
         return resavg
         
-#         q=deque()
-#         q.append(root)
-#         ans =[]
-#         while q:
-#             qlen=len(q)
-#             row =0
-#             for i in range(qlen):
-#                 node = q.popleft()
-#                 row += node.val
-#                 if node.left: q.append(node.left)
-#                 if node.right: q.append(node.right)
-#             ans.append(row/qlen)
-#         return ans
+
         
         
         
