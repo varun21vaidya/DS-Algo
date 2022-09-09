@@ -4,7 +4,7 @@ class Solution:
         # sorted(properties, key = lambda k: k[1])
         # print()
         properties.sort(key=lambda x:(-x[0],x[1]))
-        print(properties)
+        # print(properties)
         weak=0
         maxdef=properties[0][1]
         for att,defe in properties:
