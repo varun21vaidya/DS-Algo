@@ -4,9 +4,6 @@ class Solution:
         i,j=0, len(tokens)-1
         tokens.sort()
         while i<=j:
-            # if i==len(tokens)-1 and tokens[i]>power:
-            #     return score
-            # elif tokens[i]<=power:
             if tokens[i]<=power:
                 power-=tokens[i]
                 i+=1
