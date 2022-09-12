@@ -3,7 +3,6 @@ class Solution:
         score=maxx=0
         i,j=0, len(tokens)-1
         tokens.sort()
-        # print(tokens)
         while i<=j:
             if i==len(tokens)-1 and tokens[i]>power:
                 return score
@@ -16,7 +15,7 @@ class Solution:
                     power+=tokens[j]
                     j-=1
                     score-=1
-                else: return score
+                else: break
             maxx=max(maxx,score)
         return maxx
         
