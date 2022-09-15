@@ -31,7 +31,3 @@ class Solution:
                 reflect[i*2]-=reflect[i]
             
         return list(reflect.elements())
-
-        
-# changed = [1,3,4,2,6,8]
-# print(findOriginalArray(changed))
