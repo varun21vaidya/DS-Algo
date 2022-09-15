@@ -1,5 +1,7 @@
 class Solution:
     def findOriginalArray(self, changed):
+        
+        #brute force (GOT TLE)
 #         reflect=collections.Counter(changed)
         
 #         res=[]
