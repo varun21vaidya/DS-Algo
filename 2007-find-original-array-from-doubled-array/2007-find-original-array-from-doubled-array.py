@@ -19,15 +19,36 @@ class Solution:
 #             return res
 #         else:[]
 
-        reflect=collections.Counter(changed)
-        if reflect[0]%2: return []
-        for i in sorted(reflect):
-            if reflect[i]>reflect[i*2]: return []
+
+
+
+#       n*logK Solution
+
+#         reflect=collections.Counter(changed)
+#         if reflect[0]%2: return []
+#         for i in sorted(reflect):
+#             if reflect[i]>reflect[i*2]: return []
             
-            #for condition of even count of 0 we will need output of half of them
-            if not i:
-                reflect[i*2]-=reflect[i]//2
-            else: #for all other numbers
-                reflect[i*2]-=reflect[i]
+#             #for condition of even count of 0 we will need output of half of them
+#             if not i:
+#                 reflect[i*2]-=reflect[i]//2
+#             else: #for all other numbers
+#                 reflect[i*2]-=reflect[i]
             
-        return list(reflect.elements())
+#         return list(reflect.elements())
+    
+    
+# BEST AND EASY TO UNDERSTAND:
+        changed.sort()
+        que=deque([])
+        output=[]
+        
+        for i in changed:
+            if que and que[0]==i:
+                que.popleft()
+            else:
+                que.append(i*2)
+                output.append(i)
+        if que: return []
+        return output
+        
