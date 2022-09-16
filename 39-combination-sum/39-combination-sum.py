@@ -1,6 +1,6 @@
 # so as this problem contains the structure of array of digits leading to target sum
-# so similar to subsequnce problems we can use recursion by increasing index 
-# and adding a number calculating with recursion if its included in any subsequence 
+# so similar to subsequnce problems we can use recursion
+# with adding a number calculate with recursion if its included in any subsequence 
 # then removing the same number and calculating recursion for matching subsequences 
 # without that number both conditions with increasing index untill lenght of original array
 
@@ -41,7 +41,7 @@ class Solution:
         
         def helper(ind, arr, target, temp,final):
             # base condition
-            if ind == len(arr):
+            if ind >= len(arr):
                 if target==0:
                     # print("inserted",temp)
                     final.append(temp[:])
