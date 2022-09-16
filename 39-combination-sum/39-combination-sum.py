@@ -41,7 +41,7 @@ class Solution:
         
         def helper(ind, arr, target, temp,final):
             # base condition
-            if ind >= len(arr):
+            if ind == len(arr):
                 if target==0:
                     # print("inserted",temp)
                     final.append(temp[:])
