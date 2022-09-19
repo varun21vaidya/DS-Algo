@@ -60,7 +60,15 @@ class Solution:
             
             for i in range(ind, len(candidates)):
                 
+            # imp condition to avoid duplicates as for same numbers 
+            # like 1 1 1 2 2, for recursion tree first 1 will start
+            # when it moves it doesnot matter if its first one or second one
+            # so only initial one is enough so it checks 
+            # if i>ind ie its not first one and is same as previous one then skip it
+            
                 if (i>ind and candidates[i]==candidates[i-1]): continue
+                    
+                    
                     
                 if candidates[i]>target: break
                     
