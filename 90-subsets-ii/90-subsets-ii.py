@@ -25,7 +25,7 @@ class Solution:
                     
                 temp.append(arr[i])
                 helper(i+1, arr, res, temp)
-                print(temp)
+                # print(temp)
                 temp.pop()
 
         nums.sort()
