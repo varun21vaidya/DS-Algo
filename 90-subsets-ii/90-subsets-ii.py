@@ -16,21 +16,21 @@ class Solution:
 #         helper(ind, nums, res, temp)
 #         return res
     
-        def helper(ind, arr, res, temp):
+        def helper(ind, temp):
             # when recursion is called temp is added to resultant array
             res.append(temp[:])
             
-            for i in range(ind,len(arr)):
-                if i!=ind and arr[i]==arr[i-1]: continue
+            for i in range(ind,len(nums)):
+                if i!=ind and nums[i]==nums[i-1]: continue
                     
-                temp.append(arr[i])
-                helper(i+1, arr, res, temp)
+                temp.append(nums[i])
+                helper(i+1,temp)
                 # print(temp)
                 temp.pop()
 
         nums.sort()
         ind, res, temp = 0, [], []
-        helper(ind, nums, res, temp)
+        helper(ind, temp)
         return res
 
 
