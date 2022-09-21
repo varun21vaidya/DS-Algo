@@ -1,9 +1,10 @@
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
         
+        # # TC: O(n*2^n) SC: O(n) #due to search in res 
         def helper(ind, arr, res, temp):
             if ind >= len(arr):
-                if temp[:] not in res:
+                if temp not in res:
                     res.append(temp[:])
                 return
             temp.append(arr[ind])
