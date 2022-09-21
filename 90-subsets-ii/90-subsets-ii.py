@@ -18,7 +18,7 @@ class Solution:
     
         def helper(ind, temp):
             # when recursion is called temp is added to resultant array
-            res.append(temp[:])
+            res.append(temp.copy())
             
             for i in range(ind,len(nums)):
                 if i!=ind and nums[i]==nums[i-1]: continue
