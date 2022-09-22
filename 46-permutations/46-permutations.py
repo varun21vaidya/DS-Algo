@@ -45,6 +45,20 @@ class Solution:
 #         return res
 
 
+
+
+#         now we can also solve this question without using extra map
+#         instead we can just swap the digits in nums arr
+#         for each level we will asign an index with which other digits will be swapped
+#         and to swap all these index with specified index 
+#         we will loop from that index to len of nums
+#         and after each swap call recursively for next level of index
+        
+#         now when these index will cross the len of nums we will store that permutation
+        
+#         and imp that we also hava to reswap after each recursion 
+#         like we used to do pop from the temp arr after recursion
+        
         def helper(ind,nums):
             if ind>=len(nums):
                 # print(nums)
