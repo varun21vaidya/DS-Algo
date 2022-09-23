@@ -1,26 +1,52 @@
 class Solution:
-    def solveNQueens(self, n):
-        def DFS(queens, xy_dif, xy_sum):
-            """
-            temp = [["." * i + "Q" + "." * (n - i - 1) for i in queens]]
-            for t in temp:
-                for tt in t:
-                    print(tt)
-                print("\n")
-            print("\n")
-            """
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        
+        
+        def checker(row, col, board, n):
+            
+            r,c=row,col
+            
+            # check left side
+            while (c>=0):
+                if board[r][c]=="Q":
+                    return False
+                c-=1
+                
+                
+            # check left upward side
+            r,c=row,col
 
-            p = len(queens) # p is the index of row
-            if p == n:
-                result.append(queens)
-                return None
-            for q in range(n): # q is the index of col 
-                # queens stores those used cols, for example, [0,2,4,1] means these cols have been used
-                # xy_dif is the diagonal 1
-                # xy_sum is the diagonal 2
-                if q not in queens and p - q not in xy_dif and p + q not in xy_sum:
-                    DFS(queens + [q], xy_dif + [p - q], xy_sum + [p + q])
-
-        result = []
-        DFS([], [], [])
-        return [["." * i + "Q" + "." * (n - i - 1) for i in sol] for sol in result]
+            while (r>=0 and c>=0):
+                if board[r][c]=="Q":
+                    return False
+                c-=1
+                r-=1
+                
+            # check left downward side
+            r,c=row,col
+            while (r<n and c>=0):
+                if board[r][c]=="Q":
+                    return False
+                c-=1
+                r+=1
+            
+            return True
+        
+        def queens(col,board,n):
+            
+            if col==n:
+                # print(board)
+                ans.append(["".join(i) for i in board])
+                return
+                
+            for row in range(n):
+                if checker(row,col,board,n):
+                    board[row][col]="Q"
+                    queens(col+1,board,n)               
+                    board[row][col]="."
+                
+        board=[["." for i in range(n)] for j in range(n)] 
+        # print(board)
+        ans=[]
+        queens(0,board,n)
+        return ans
