@@ -1,4 +1,4 @@
-# # ****summation of first N numbers***************
+# # summation of first N numbers @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 #  # parameterized way: TC:O(n) SC:O(n)
 # def summation(n, summ):
@@ -29,7 +29,7 @@
 # print("factorial of",n,"is equal to" ,facto(n))
 
 
-# # ********reverse an Array:************************
+# # reverse an Array: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 # # USING LOOPS
 
@@ -73,7 +73,7 @@
 # print("using recursion",reverse_recursion(arr))
 
 
-# # String Palindrome *********************************
+# # String Palindrome @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 # def pali_check(st,i=0):
 #     # if index goes beyond half that means its palindrome
@@ -88,7 +88,7 @@
 # print(st2,pali_check(st2))
 
 
-# Fibonacci Number ************************************
+# Fibonacci Number @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 # def fibo(n):
 #     if n<2:
