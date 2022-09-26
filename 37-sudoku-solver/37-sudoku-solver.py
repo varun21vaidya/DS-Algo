@@ -4,27 +4,27 @@ class Solution:
         Do not return anything, modify board in-place instead.
         """
         
-#         def isvalid(row,col,board,c):
-#             c=str(c)
-#             for i in range(9):
-#                 if board[i][col]==c: return False
-#                 if board[row][i]==c: return False
-#                 if board[3*(row//3)+ i//3][3*(col//3) + i%3]==c: return False
+        def isvalid(row,col,board,c):
+            c=str(c)
+            for i in range(9):
+                if board[i][col]==c: return False
+                if board[row][i]==c: return False
+                if board[3*(row//3)+ i//3][3*(col//3) + i%3]==c: return False
                 
-#             return True
+            return True
         
-#         for i in range(9):
-#             for j in range(9):
-#                 if board[i][j]==".":
-#                     for c in range(1,10):
-#                         if isvalid(i,j,board,c):
-#                             board[i][j]=str(c)                         
-#                             if self.solveSudoku(board):
-#                                 return True
-#                             else:
-#                                 board[i][j]="."
-#                     return False
-#         return True
+        for i in range(9):
+            for j in range(9):
+                if board[i][j]==".":
+                    for c in range(1,10):
+                        if isvalid(i,j,board,c):
+                            board[i][j]=str(c)                         
+                            if self.solveSudoku(board):
+                                return True
+                            else:
+                                board[i][j]="."
+                    return False
+        return True
         
         
         
@@ -83,25 +83,14 @@ class Solution:
                             else:
                                 board[i][j]="."
 
-                        # even after checking for loop with isvalid from 1->9 for this position
-                        # if none of the value gets filled that means at some previous point it was wrong fill 
-                        # so backtracking to that previous wrong fill point
-                        # it will return false which will return sodoku(board) to false and will empty that cell again
+                    # even after checking for loop with isvalid from 1->9 for this position
+                    # if none of the value gets filled that means at some previous point it was wrong fill 
+                    # so backtracking to that previous wrong fill point
+                    # it will return false which will return sodoku(board) to false and will empty that cell again
                     # and check for next valid value for that position
                     return False
 
         # if it comes here, it means there is no empty cell remaining 
         return True
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-# # Same code without comments
 
     
