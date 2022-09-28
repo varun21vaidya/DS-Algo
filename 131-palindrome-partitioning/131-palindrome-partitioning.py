@@ -7,7 +7,8 @@ class Solution:
 # if its palindrome then use recursion and check the partition for remaining string
 # with updated index 
 # to update index we need to loop through the string and each point repeat the process
-# ie check for palindrome and use recursion 
+# ie check for palindrome and use recursion, and remember to remove that after recursion
+# as backtracking process.
 # now when the index goes out of string we will have the partitioned array
 # and append it to resultant array
         def ispali(s):
