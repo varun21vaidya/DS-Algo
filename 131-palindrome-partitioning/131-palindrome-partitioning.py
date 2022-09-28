@@ -19,7 +19,7 @@ class Solution:
         def solver(ind,s,temp,res):
             if ind==len(s):
                 # print(temp)
-                res.append(temp[:])
+                res.append(temp.copy())
                 return
             for i in range(ind,len(s)):
                 
