@@ -16,7 +16,7 @@ class Solution:
             if ind==len(s):
                 # print(temp)
                 res.append(temp[:])
-                
+                return
             for i in range(ind,len(s)):
                 
                 if ispali(s[ind:i+1]):
