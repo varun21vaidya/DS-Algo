@@ -1,3 +1,4 @@
+
 # # summation of first N numbers @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 #  # parameterized way: TC:O(n) SC:O(n)
@@ -727,3 +728,141 @@
 
 # n=4
 # print(solveNQueens(n))
+
+
+# # SUDOKU SOLVER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+# # problem link: https://leetcode.com/problems/sudoku-solver/
+
+# def solveSudoku(board):
+#     """
+#     Do not return anything, modify board in-place instead.
+#     """
+
+#     def isvalid(row, col, board, c):
+#         # c is the number we want to check for this sudodku for that row,col position
+#         c=str(c)
+#         for i in range(9):
+
+#             # check if c already is in same row
+#             if board[row][i] == c:
+#                 return False
+
+#             # check if c already is in same col
+#             if board[i][col] == c:
+#                 return False
+
+#             # check if c already is in same 3*3 box
+#             # checks for every row and col from this box
+#             if board[3 * (row // 3) + i//3][3 * (col//3) + i % 3] == c:
+#                 return False
+
+#         # if code comes to this level it means there has not been False
+#         # ie c can be filled in board[row][col]
+#         return True
+
+#     # main function to solve sudoku
+#     # traverse through matrix
+#     for i in range(9):
+#         for j in range(9):
+
+#             # check if there is any empty cell
+#             if board[i][j] == ".":
+
+#                 # if there is any empty cell we will check for all values from 1 to 9
+#                 for c in range(1, 10):
+
+#                     # now call isvalid to check if c can be filled in board at i,j position
+#                     if isvalid(i, j, board, c):
+
+#                         # if isvalid is true then fill the c in the position
+#                         # then we can use recursion to check if it can fulfill
+#                         # for other empty cells or not if it fulfill we will not remove its value
+#                         # and will return true
+#                         # but if sudoku at any point in future for a certain position could not match
+#                         # any value for that empty position then that will return False
+#                         # and through backtracking we will come to this point which was wrong fill for this sudoku
+#                         # so as it was wrong fill for this position then we will remove c from the board
+
+#                         board[i][j] = str(c)
+
+#                         if solveSudoku(board):
+#                             return True
+#                         else:
+#                             board[i][j] = "."
+
+#                 # even after checking for loop with isvalid from 1->9 for this position
+#                 # if none of the value gets filled that means at some previous point it was wrong fill
+#                 # so backtracking to that previous wrong fill point
+#                 # it will return false which will return sodoku(board) to false and will empty that cell again
+#                 # and check for next valid value for that position
+#                 return False
+
+#     # if it comes here, it means there is no empty cell remaining
+#     return True
+
+# Time complexity: for every cell ie n*n of matrix, we try to put number from 1->9
+#                  ie 9 numbers tried for n*n matrix ie 9^(n*n) here n=3 ie 9^(3*3)
+# Space complexity: n*n as that much stack space would be used
+
+
+# board = [["5", "3", ".", ".", "7", ".", ".", ".", "."], ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+#          [".", "9", "8", ".", ".", ".", ".", "6", "."], [
+#              "8", ".", ".", ".", "6", ".", ".", ".", "3"],
+#          ["4", ".", ".", "8", ".", "3", ".", ".", "1"], [
+#              "7", ".", ".", ".", "2", ".", ".", ".", "6"],
+#          [".", "6", ".", ".", ".", ".", "2", "8", "."], [
+#              ".", ".", ".", "4", "1", "9", ".", ".", "5"],
+#          [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
+# # run the main sudoku function
+# solveSudoku(board)
+# print(board)
+
+
+# # M-coloring Problem of Graph @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+# # Problem link: https://practice.geeksforgeeks.org/problems/m-coloring-problem-1587115620/1
+
+
+# #Function to determine if graph can be coloured with at most M colours such
+# #that no two adjacent vertices of graph are coloured with same colour.
+# def graphColoring(graph, M, N):
+
+#     # we will check if a certain color can be applied to specific node
+#     # such that it is not applied to adjecent nodes
+#     # graph[node][i]==1 gives its adjecent node
+#     # and if that color is applied to adjecent node return false
+#     # else return True
+#     def valid(col,node):
+#         for i in range(N):
+#             if graph[node][i]==1 and color[i]==col:
+#                 return False
+#         return True
+
+#     def solve(node):
+#         # if node is out of actual graph values,
+#         # it means every function was True, ie we got solution
+#         if node==N:
+#             return True
+
+#         # if there are M colors each color will be tried to apply to node
+#         # if any of it is valid we check if can other colors be fitted to
+#         # solution with this color, by recursing with next node
+#         # if yes then return True
+#         # if not then redefine that color to 0
+#         for i in range(1, M+1):
+#             if valid(i, node):
+#                 color[node]=i
+#                 if solve(node+1):
+#                     return True
+#                 else:
+#                     color[node]=0
+
+#         # if a certain node cannot be applied by any color
+#         # then solution is wrong at some point in previous steps
+#         # hence return true which will give false to solve(node+1)
+#         # at that point and redifine the color to 0
+#         return False
+
+#     color=[0]*N
+#     return solve(0)
