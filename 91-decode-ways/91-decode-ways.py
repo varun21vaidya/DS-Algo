@@ -1,6 +1,8 @@
 class Solution:
     def numDecodings(self, s: str) -> int:
         
+        # Recursive Appraoch (TLE):
+        
         
 #         # as we can see 11106 can be divided into two valid values
 #         # 1,1,10,6 and  11,10,6 
@@ -26,6 +28,9 @@ class Solution:
 #                 firsttwo= solver(s[2:])
                 
 #             return first + firsttwo
+        
+        
+        # RECURSION WITH MEMOIZATION (DP): 
         
         
         # now we can see if the input is 1111111111111...it will give TLE
