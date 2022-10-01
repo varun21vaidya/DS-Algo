@@ -3,20 +3,20 @@ class Solution:
         
         
 #         # intuation approach
-#         if len(stones)==1:
-#             return stones[0]
-#         while len(stones)>1:
-#             stones.sort()
-#             if stones[-1]==stones[-2]:
-#                 stones.pop()
-#                 stones.pop()
-#             else:
-#                 temp=stones.pop()-stones.pop()
-#                 stones.append(temp)
-#             if len(stones)==0:
-#                 return 0
-#             if len(stones)==1:
-#                 return stones[0]
+        if len(stones)==1:
+            return stones[0]
+        while len(stones)>1:
+            stones.sort()
+            if stones[-1]==stones[-2]:
+                stones.pop()
+                stones.pop()
+            else:
+                temp=stones.pop()-stones.pop()
+                stones.append(temp)
+            if len(stones)==0:
+                return 0
+            if len(stones)==1:
+                return stones[0]
             
             
         # Using Priority Queue 
