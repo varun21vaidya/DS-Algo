@@ -18,17 +18,30 @@ class Solution:
 #         if root:
 #             return self.hasPathSum(root.left,targetSum-root.val) or self.hasPathSum(root.right, targetSum-root.val)
         
-        # Iterative
+#         # Iterative
+#         if not root: return False
+#         stack=[(root,root.val)]
+#         while stack:
+#             root,val=stack.pop()
+#             if not root.left and not root.right and val==targetSum:
+#                 return True
+#             if root.left:
+#                 stack.append((root.left, val+root.left.val))
+#             if root.right:
+#                 stack.append((root.right, val+root.right.val))
+#         return False
+    
+    
         if not root: return False
-        stack=[(root,root.val)]
+        stack=[(root,targetSum)]
         while stack:
-            root,val=stack.pop()
-            if not root.left and not root.right and val==targetSum:
+            root,Sum=stack.pop()
+            if not root.left and not root.right and root.val==Sum:
                 return True
             if root.left:
-                stack.append((root.left, val+root.left.val))
+                stack.append((root.left, Sum-root.val))
             if root.right:
-                stack.append((root.right, val+root.right.val))
+                stack.append((root.right, Sum-root.val))
         return False
                 
         
