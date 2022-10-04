@@ -32,6 +32,8 @@ class Solution:
 #         return False
     
     
+#     Runtime: 34 ms, faster than 99.76% of Python3 online submissions for Path Sum.
+#     Memory Usage: 15.1 MB, less than 56.49% of Python3 online submissions for Path Sum.
         if not root: return False
         stack=[(root,targetSum)]
         while stack:
