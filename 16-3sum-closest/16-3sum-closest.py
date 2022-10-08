@@ -13,8 +13,7 @@ class Solution:
                 
                 if summ==target: return summ
                 if abs(summ-target) <abs(closest-target):
-                    closest=summ
-                    
+                    closest=summ  
                 if summ<target:
                     mid+=1
                 elif summ>target:
