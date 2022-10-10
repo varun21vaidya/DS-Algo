@@ -29,6 +29,7 @@ class Solution:
 #         return palindrome[:-1]+'b'
 
 
+        # WITHOUT EXTRA SPACE
 
         # instead of using extra space for 'st'
         # what was corner case was that 'aba'
