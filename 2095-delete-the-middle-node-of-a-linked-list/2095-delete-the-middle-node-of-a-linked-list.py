@@ -27,6 +27,10 @@ class Solution:
 #         return temp
 
 
+#       Fast and Slow Method:
+#       use two pointers at same time, one at double speed, one at normal speed
+#       when double speed pointer reaches end and next is None or next.next is None,
+#       normal speed pointer is before mid, so we can skip mid and return head
         if not head.next:
             return None
         
