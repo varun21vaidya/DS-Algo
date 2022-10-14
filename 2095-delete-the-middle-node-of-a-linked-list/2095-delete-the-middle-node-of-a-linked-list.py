@@ -31,6 +31,8 @@ class Solution:
 #       use two pointers at same time, one at double speed, one at normal speed
 #       when double speed pointer reaches end and next is None or next.next is None,
 #       normal speed pointer is before mid, so we can skip mid and return head
+#       More efficient than previous method as it needs only one loop
+
         if not head.next:
             return None
         
