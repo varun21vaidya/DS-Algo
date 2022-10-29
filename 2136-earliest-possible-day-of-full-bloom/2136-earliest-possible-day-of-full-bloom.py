@@ -1,9 +1,10 @@
 class Solution:
     def earliestFullBloom(self, plantTime: List[int], growTime: List[int]) -> int:
-        order= sorted(range(len(plantTime)), key= lambda x: -growTime[x])
+        order= sorted(zip(growTime,plantTime),reverse=True)
         print(order)
         res,curr=0,0
-        for i in order:
-            curr+=plantTime[i]
-            res= max(res, curr+growTime[i])
+        for grow,plant in order:
+            curr+=plant
+            print(res, curr, grow)
+            res=max(res,curr+grow)
         return res
