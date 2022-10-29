@@ -20,8 +20,8 @@ class Solution:
         #         maxsum=curr
         # return maxsum
         
-        maxx=nums[0]
-        for i in range(1,len(nums)):
-            nums[i]=max(nums[i], nums[i]+nums[i-1])
-            maxx=max(maxx, nums[i])
+        currmax,maxx=0,nums[0]
+        for i in range(len(nums)):
+            currmax=max(nums[i], nums[i]+currmax)
+            maxx=max(maxx, currmax)
         return maxx
