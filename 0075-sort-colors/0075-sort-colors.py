@@ -21,6 +21,15 @@ class Solution:
                 
         
         # Dutch National Flag Algorithm (1 pass O(N))
+        
+#       We use three pointers which will divide the resulting array
+#       when it completes 0->low-1 will have all 0
+#       high+1-> end will have all 2 and remaining in middle will be 1
+
+#       3 conditions are to be followed
+#       when mid is at 0 swap low and mid and increament low and mid
+#       when mid is at 2 swap high and mid and decrement high only
+#       when mid is at 1 increament mid ie else condition
         low,mid,high =0,0,len(nums)-1
         
         while mid<=high:
