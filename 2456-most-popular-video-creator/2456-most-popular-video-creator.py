@@ -15,7 +15,7 @@ class Solution:
                 mostview[creators[i]]=views[i]
                 maxview[creators[i]]=[ids[i],views[i]]
             
-        m=max(list(mostview.values()))
+        m=max(mostview.values())
         maxcreators=[i for i,j in mostview.items() if j==m]
         # print(maxcreators)
         # print(maxview)
