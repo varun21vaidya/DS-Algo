@@ -3,9 +3,12 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        # counting sort
-        red=nums.count(0)
-        white= nums.count(1)
+        # counting sort (2 passes)
+        red,white=0,0
+        for i in nums:
+            if i==0: red+=1
+            elif i==1: white+=1
+                
         for i in range(len(nums)):
             if red>0:
                 red-=1
@@ -15,5 +18,7 @@ class Solution:
                 nums[i]=1
             else:
                 nums[i]=2
+                
+        
                 
             
