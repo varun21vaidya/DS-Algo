@@ -17,15 +17,13 @@ class Solution:
         
         
         res=0
-        p=1
+        m=1
         def summ(x):
             s=0
             while x:
                 s,x=s+x%10,x//10
             return s
-        while summ(n)>target:
-            res+=(10-n%10)*p    
-            n//=10
-            n+=1
-            p*=10
+        while summ(n+res)>target:
+            m*=10
+            res=m-n%m
         return res
