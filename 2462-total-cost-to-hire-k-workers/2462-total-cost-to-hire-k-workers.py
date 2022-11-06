@@ -9,7 +9,7 @@ class Solution:
         for i in range(max(right,left),N):
             heapq.heappush(h,( costs[i],i,-1))
         right-=1
-        print(h)
+        # print(h)
         total=0
         while k>0:
             cost,ind,dirr=heapq.heappop(h)
