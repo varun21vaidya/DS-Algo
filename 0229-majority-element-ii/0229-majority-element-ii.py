@@ -13,6 +13,22 @@ class Solution:
         # # print(mapp)
         # return [key for key,value in mapp.items() if value>n//3]
     
+    
+        # Using Boyer Moore Majority Voting System
+        
+        # Moores Majority Voting System
+        # TC: O(N) SC: O(1)
+        # for ref check OG problem
+        # https://leetcode.com/problems/majority-element/ 
+        # we generate a single candidate value, which is majority value.
+        # for each element we examine count value if count is 0
+        # we set candidate to value of current element
+        # then first compare current and candidate if they are same
+        # increase counter value and if they are different decrease count
+        
+        # now for majority of n/k candidates, there will always be k-1 
+        # so for n/3 we need 3-1 ie 2 variables ie candidates
+        
         candidate1=0
         candidate2=0
         count1=0
