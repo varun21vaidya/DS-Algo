@@ -1,21 +1,18 @@
 class Solution:
-    def searchMatrix(self, matrix,target):
-        def recurse(row,col):
-            
-            if row>=m or col<0:
-                return False
-            ele=matrix[row][col]
-            # print(ele)
-            
-            if target==ele:
-                return True
-            
-            elif target>ele:
-                return recurse(row+1,col)
-            else:
-                return recurse(row,col-1)
-                
-                
-        m,n=len(matrix),len(matrix[0])
-        row,col=0,n-1
-        return recurse(row,col)
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        
+        
+        def binary_search(nums, target):
+            l,r=0,len(nums)-1
+            while l<r:
+                mid=l+(r-l)//2
+                if nums[mid]<target:
+                    l=mid+1
+                else:
+                    r=mid
+            return True if target==nums[l] else False
+        
+        x= [i for row in matrix for i in row]
+        print(x)
+        if len(x)==1: return target==x[0]
+        return binary_search(x,target)
