@@ -13,6 +13,5 @@ class Solution:
             return True if target==nums[l] else False
         
         x= [i for row in matrix for i in row]
-        print(x)
-        if len(x)==1: return target==x[0]
+        # print(x)
         return binary_search(x,target)
