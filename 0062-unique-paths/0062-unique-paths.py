@@ -20,35 +20,7 @@ class Solution:
         # return dp[m-1][n-1]
         
         
-#       RECURSIVE SOLUTION (TLE)
-#         def help(i,j,m,n):
-#             if i>=m or j>=n:
-#                 return 0
-#             elif i==m-1 and j==n-1:
-#                 return 1
-#             else:
-#                 return help(i+1,j,m,n)+help(i,j+1,m,n)
-        
-#         return help(0,0,m,n)
-    
-#      
-#         def help(i,j,m,n,dp):
-#             if i>=i or j>=n:
-#                 return 0
-#             elif i==m-1 and j==n-1:
-#                 return 1
-#             else:
-#                 if dp[i][j]!=-1:
-#                     print(dp)
-#                     return dp[i][j]
-                
-#                 dp[i][j]= help(i+1,j,m,n,dp)+help(i,j+1,m,n,dp)
-#                 return dp[i][j]
-        
-#         dp=[[-1]*(n)]*(m)
-#         # print(dp)
-#         return help(0,0,m,n,dp)
-
+#       RECURSIVE SOLUTION TOP DOWN
         @lru_cache(maxsize=None)
         def help(i,j,m,n):
             if i>=m or j>=n:
@@ -59,3 +31,19 @@ class Solution:
                 return help(i+1,j,m,n)+help(i,j+1,m,n)
         
         return help(0,0,m,n)
+
+#      
+        def help(i,j,m,n,dp):
+            if i>=m or j>=n:
+                return 0
+            elif i==m-1 and j==n-1:
+                return 1
+            else:
+                if (i,j) in dp:
+                    return dp[(i,j)]
+                
+                dp[(i,j)]= help(i+1,j,m,n,dp)+help(i,j+1,m,n,dp)
+                return dp[(i,j)]
+        
+        dp={}
+        return help(0,0,m,n,dp)
