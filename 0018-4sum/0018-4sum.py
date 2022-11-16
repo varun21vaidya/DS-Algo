@@ -23,10 +23,10 @@ class Solution:
                         
                     else:
                         res.add((nums[first],nums[second],nums[third],nums[fourth]))
-                        # while third<fourth and nums[third]==nums[third+1]:
-                        #     third+=1
-                        # while third<fourth and nums[fourth]==nums[fourth-1]:
-                        #     fourth-=1
+                        while third<fourth and nums[third]==nums[third+1]:
+                            third+=1
+                        while third<fourth and nums[fourth]==nums[fourth-1]:
+                            fourth-=1
 
                         third+=1
                         fourth-=1
