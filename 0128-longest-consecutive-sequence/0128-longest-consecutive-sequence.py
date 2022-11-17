@@ -4,7 +4,7 @@ class Solution:
         if not nums: return 0
         maxx,temp=1,1
         for i in range(1,len(nums)):
-            print(nums[i],maxx,temp)
+            # print(nums[i],maxx,temp)
             if nums[i]==nums[i-1]+1:
                 temp+=1
             # if number same as previous num, ignore it
@@ -12,3 +12,5 @@ class Solution:
                 temp=1
             maxx=max(maxx,temp)
         return (maxx)
+    
+    
