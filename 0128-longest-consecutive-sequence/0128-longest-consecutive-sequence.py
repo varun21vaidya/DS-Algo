@@ -28,6 +28,3 @@ class Solution:
                     i=i+1
                 maxx=max(temp,maxx)
         return maxx
-    
-        longest_streak = 0
-        num_set = set(nums)
