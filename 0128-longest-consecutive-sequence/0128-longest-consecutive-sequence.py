@@ -17,29 +17,17 @@ class Solution:
     # first append all elements to set
     # use while loop to check if i-1 is present and update curr and maxx
     # return maxx
-        # hashset=set(nums)
+        hashset=set(nums)
         # if not nums: return 0
-        # maxx=0
-        # for i in hashset:
-        #     temp=1
-        #     while i-1 in hashset:
-        #         temp+=1
-        #         i=i-1
-        #     maxx=max(temp,maxx)
-        # return maxx
+        maxx=0
+        for i in hashset:
+            if i-1 not in hashset:
+                temp=1
+                while i+1 in hashset:
+                    temp+=1
+                    i=i+1
+                maxx=max(temp,maxx)
+        return maxx
     
         longest_streak = 0
         num_set = set(nums)
-
-        for num in num_set:
-            if num - 1 not in num_set:
-                current_num = num
-                current_streak = 1
-
-                while current_num + 1 in num_set:
-                    current_num += 1
-                    current_streak += 1
-
-                longest_streak = max(longest_streak, current_streak)
-
-        return longest_streak
