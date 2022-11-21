@@ -1,7 +1,7 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         low,high,count,maxx=0,0,0,0
-        sett=[]
+        sett=deque()
         n=len(s)
         while high<n:
             if s[high] in sett:
@@ -9,7 +9,7 @@ class Solution:
                 # print(s[high],maxx)
                 while s[high] in sett:
                     low+=1
-                    sett.pop(0)
+                    sett.popleft()
 
             sett.append(s[high])
 
