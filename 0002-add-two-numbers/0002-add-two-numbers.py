@@ -23,7 +23,7 @@ class Solution:
                 
             prev=total//10
             total=total%10
-            print(total)
+            # print(total)
             res.next=ListNode(total)
             
             res=res.next
