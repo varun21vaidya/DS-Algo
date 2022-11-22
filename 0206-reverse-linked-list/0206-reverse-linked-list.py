@@ -5,16 +5,27 @@
 #         self.next = next
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        curr,prev,nextt=head,None,None
-        while curr:
-            nextt=curr.next
-            curr.next=prev
-            prev=curr
-            curr=nextt
-        return prev
         
+#       Iterative Solution
+
+        # curr,prev,nextt=head,None,None
+        # while curr:
+        #     nextt=curr.next
+        #     curr.next=prev
+        #     prev=curr
+        #     curr=nextt
+        # return prev
         
+#       Recursive Solution
         
+        def solver(curr,prev):
+            if curr:
+                nextt=curr.next
+                curr.next=prev
+                return solver(nextt,curr)
+            else:
+                return prev
+        return solver(head, None)
         
         
         
