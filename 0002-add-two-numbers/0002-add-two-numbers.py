@@ -26,6 +26,7 @@ class Solution:
                 prev=1
             else:
                 prev=0
+                
             res.next=ListNode(total)
         
             res=res.next
