@@ -37,6 +37,30 @@ class Solution:
         # and head.next will point to null so at each point last node will point to null
         # and at the end first node will point to null and all others would be pointing to it
         
+#         ie og linkedlist and newhead will be perpendicular at head point
+#         when head=5 return head, newhead=5
+#                                         5                     
+#                                         |
+#         newhead=5, head=4 output= 1-2-3-4-None
+#         now return newhead=5>4
+        
+#                                       5                     
+#                                       4  
+#         newhead=4, head=3 output= 1-2-3-None
+#         now return newhead=5>4>3
+#                                     5
+#                                     4                     
+#                                     3 
+#         newhead=3, head=2 output= 1-2-None
+#         now return newhead=5>4>3>2  
+#                                   5
+#                                   4
+#                                   3                     
+#                                   2 
+#         newhead=2, head=1 output= 1-None
+#         now return newhead= 5>4>3>2>1
+        
+        
         if head==None or head.next == None: return head
         
         newhead= self.reverseList(head.next)
