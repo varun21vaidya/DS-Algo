@@ -30,7 +30,8 @@ class Solution:
         # so pointer2 will be double faster and
         # cover double distance than pointer1
         # so when pointer1 is at mid, pointer 2 will be at end
-        # so check until pointer2.next for odd length and pointer2.next.next for even 
+        # so check until pointer2.next for odd length 
+        # and pointer2.next.next for even 
         # and traverse both pointers 
         # and after while loop return pointer1
     
