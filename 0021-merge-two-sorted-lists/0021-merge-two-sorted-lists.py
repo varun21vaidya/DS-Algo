@@ -48,6 +48,17 @@ class Solution:
 #         return res
 
         
+        # Recursive
+        
+#         to implement implace with recursion,
+#         we will check base condtion ie
+#         if no list 1 or list2 is present we return list2 and list1 respectively
+    
+#         now if list1 value is less than list2 value,
+#         we will reference list1.next pointer to result of mergeTwoLists(list1.next,list2)
+#         and when list2 value becomes greater we will swap it as list1 and list1 as list2
+#         so that at every stage, a lower value will be list1
+        
         if not list1: return list2
         if not list2: return list1
         
