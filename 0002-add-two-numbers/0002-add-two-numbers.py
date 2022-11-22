@@ -6,48 +6,31 @@
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         temp=res=ListNode()
+        total=0
         prev=0
-        while l1 and l2: 
-            node=l1.val+l2.val+prev
-            l1=l1.next
-            l2=l2.next
-            
-            if node<10:
-                res.next=ListNode(node)
-                prev=0
-            else:
-                res.next=ListNode(node-10)
-                prev=1
-
-            res=res.next
         
-        while l1:
-            node=l1.val+prev
-            l1=l1.next
+        while l1 or l2: 
             
-            if node<10:
-                res.next=ListNode(node)
-                prev=0
-            else:
-                res.next=ListNode(node-10)
-                prev=1
+            total=prev
             
-
-            res=res.next
-        while l2:
-            node=l2.val+prev
-            l2=l2.next
-            
-            if node<10:
-                res.next=ListNode(node)
-                prev=0
-            else:
-                res.next=ListNode(node-10)
-                prev=1
+            if l1:
+                total+=l1.val
+                l1=l1.next
                 
-            res=res.next 
-            
-        if prev:
+            if l2:
+                total+=l2.val
+                l2=l2.next
+                
+            if total>=10:
+                total-=10
+                prev=1
+            else:
+                prev=0
+            res.next=ListNode(total)
+        
+            res=res.next
+       
+        if not l1 and not l2 and prev:
             res.next=ListNode(prev)
             
         return temp.next
