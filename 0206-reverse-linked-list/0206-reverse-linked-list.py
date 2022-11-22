@@ -16,19 +16,34 @@ class Solution:
         #     curr=nextt
         # return prev
         
-#       Recursive Solution
+#       Recursive Solution TOP-->DOWN
         
-        def solver(curr,prev):
-            if curr:
-                nextt=curr.next
-                curr.next=prev
-                return solver(nextt,curr)
-            else:
-                return prev
-        return solver(head, None)
+        # def solver(curr,prev):
+        #     if curr:
+        #         nextt=curr.next
+        #         curr.next=prev
+        #         return solver(nextt,curr)
+        #     else:
+        #         return prev
+        # return solver(head, None)
         
         
+#       Recursive Bottom-->UP
         
+        # create a newhead and it will point to previous node which is current head
+        # and that current head will point to null
+        # base condition: if head or head.next is null return head
+        # and when newhead is returned head.next.next will point to head
+        # and head.next will point to null so at each point last node will point to null
+        # and at the end first node will point to null and all others would be pointing to it
+        
+        if head==None or head.next == None: return head
+        
+        newhead= self.reverseList(head.next)
+        head.next.next=head
+        head.next=None
+        
+        return newhead
         
         
         
