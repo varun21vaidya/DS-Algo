@@ -21,14 +21,11 @@ class Solution:
                 total+=l2.val
                 l2=l2.next
                 
-            if total>=10:
-                total-=10
-                prev=1
-            else:
-                prev=0
-                
+            prev=total//10
+            total=total%10
+            print(total)
             res.next=ListNode(total)
-        
+            
             res=res.next
        
         if not l1 and not l2 and prev:
