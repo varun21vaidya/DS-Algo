@@ -5,6 +5,9 @@
 #         self.next = next
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+#       first traverse whole linked list
+#       calculate the length of list
+#       and traverse upto half of that length and return 
         count=0
         temp=head
         while temp:
@@ -17,4 +20,9 @@ class Solution:
         
         return head
         
+        ptr1,ptr2=head,head
+        while ptr2.next or ptr2.next.next:
+            ptr1=ptr1.next
+            ptr2=ptr2.next.next
+        return ptr1
         
