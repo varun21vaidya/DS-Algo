@@ -50,40 +50,59 @@ class Solution:
         # if not return Null
         
         # TC: O(m+n) SC: O(1)
-        c1,c2=0,0
-        temp1,temp2=headA,headB
+#         c1,c2=0,0
+#         temp1,temp2=headA,headB
         
-        # get count of both nodes
-        while headA:
-            c1+=1
-            headA=headA.next
+#         # get count of both nodes
+#         while headA:
+#             c1+=1
+#             headA=headA.next
         
-        while headB:
-            c2+=1
-            headB=headB.next
+#         while headB:
+#             c2+=1
+#             headB=headB.next
         
-        # print(c1,c2)
+#         # print(c1,c2)
         
-        # if count1>count 2 traverse temp1 to c1-c2
-        # else traverse temp2 c2-c1
-        if c1>c2:
-            # print("list1 is longer")
-            while c1>c2:
-                temp1=temp1.next
-                c1-=1
-        else:
-            # print("list2 is longer")
-            while c2>c1:
-                temp2=temp2.next
-                c2-=1
+#         # if count1>count 2 traverse temp1 to c1-c2
+#         # else traverse temp2 c2-c1
+#         if c1>c2:
+#             # print("list1 is longer")
+#             while c1>c2:
+#                 temp1=temp1.next
+#                 c1-=1
+#         else:
+#             # print("list2 is longer")
+#             while c2>c1:
+#                 temp2=temp2.next
+#                 c2-=1
                 
-        while temp1 and temp2:
-            if temp1==temp2:
-                # print("got the node")
-                return temp1
-            temp1=temp1.next
-            temp2=temp2.next
+#         while temp1 and temp2:
+#             if temp1==temp2:
+#                 # print("got the node")
+#                 return temp1
+#             temp1=temp1.next
+#             temp2=temp2.next
         
-        return None
+#         return None
+
+        p1=headA
+        p2=headB
+        while p1!=p2:
+            p1=p1.next
+            p2=p2.next
+            
+            
+            if not p1 and not p2:
+                return None
+            
+            if not p1:
+                p1=headB
+            
+            if not p2:
+                p2=headA
+        
+        return p1    
+            
         
             
