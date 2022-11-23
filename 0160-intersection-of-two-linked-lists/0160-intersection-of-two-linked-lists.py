@@ -42,6 +42,7 @@ class Solution:
         
 #         return None
     
+         # method 3: DIFFERENCE METHOD (Required and efficient)
     
         # take the difference between length of nodes
         # traverse the longer list upto difference between them
@@ -63,7 +64,7 @@ class Solution:
 #             headB=headB.next
         
 #         # print(c1,c2)
-        
+    
 #         # if count1>count 2 traverse temp1 to c1-c2
 #         # else traverse temp2 c2-c1
 #         if c1>c2:
@@ -86,6 +87,21 @@ class Solution:
         
 #         return None
 
+        
+        # method 4 : BEST APPROACH
+
+        # differece method will work but takes too many differnt components
+        # instead we can use same diff appraoch but with just 2 pointers
+        # take 2 pointers at each heads and if one of them goes to Null 
+        # reassign them to opposite head and reiterate
+        # now other also may go to null and need to reiterate
+        # now at one point both will be at same position
+        # this is our intersecting node
+        # if at any point both pointers become null, there is no intersection
+        # hence return Null
+        
+        # TC: O(m+n) SC: O(1)
+        
         p1=headA
         p2=headB
         while p1!=p2:
