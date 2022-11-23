@@ -42,6 +42,14 @@ class Solution:
         
 #         return None
     
+    
+        # take the difference between length of nodes
+        # traverse the longer list upto difference between them
+        # now traverse both the lists at same time, and 
+        # check if both nodes are same, return the node
+        # if not return Null
+        
+        # TC: O(m+n) SC: O(1)
         c1,c2=0,0
         temp1,temp2=headA,headB
         
