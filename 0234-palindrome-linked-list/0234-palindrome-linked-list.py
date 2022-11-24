@@ -21,9 +21,47 @@ class Solution:
         # return True
         
         # method 2: use floyds algo and reach the middle of linked list
-        # then run another pointer from the start
+        # then run another pointer from the slow and reverse the remaining list
+        # now take prev pointer which will be used for traversing reverse list 
+        # and also use head pointer from start
+        # traverse both pointers while prev becomes null ie
+        # prev- middle to end ie reverse order or middle to end
+        # front - front to middle
+
         
-        #method2: first get to middle then reverse list
+#         slow,fast=head, head
+#         while fast and fast.next:
+#             fast=fast.next.next
+#             slow=slow.next
+
+#         # if list is odd, skip middle node and only compare left, right halfs
+#         if fast: slow=slow.next
+            
+#         prev=None
+#         front=head
+        
+#         while slow:
+#             nex=slow.next
+#             slow.next=prev
+#             prev=slow
+#             slow=nex
+            
+#         while prev:
+#             if front.val!=prev.val:
+#                 return False
+#             front=front.next
+#             prev=prev.next
+#         return True
+        
+        
+        # method 3 : similar to method 2
+        # but we will reverse the front to middle at the same time of traversing slow
+        # and prev pointer will denote reversed list from front to middle
+        # while slow pointer has reached middle so will traverse from middle to end
+        
+        
+        
+        
         
         slow,fast=head, head
         
@@ -42,9 +80,11 @@ class Solution:
         # print(prev)
         # print(slow)
         
+        # if list is odd, skip middle node and only compare left, right halfs
+
         if fast: slow=slow.next
 
-        while prev:
+        while slow:
             if slow.val!=prev.val:
                 return False
             slow=slow.next
