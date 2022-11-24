@@ -31,5 +31,4 @@ class Solution:
             return slow
         else:  
             return None
-            
-        
+         
