@@ -26,24 +26,28 @@ class Solution:
         #method2: first get to middle then reverse list
         
         slow,fast=head, head
+        
+        front=head
+        prev=None
+        
+        
         while fast and fast.next:
             fast=fast.next.next
-            slow=slow.next
-        if fast: slow=slow.next
-            
-        prev=None
-        front=head
-        
-        while slow:
+            # slow=slow.next
             nex=slow.next
             slow.next=prev
             prev=slow
-            slow=nex
+            slow=nex  
             
+        # print(prev)
+        # print(slow)
+        
+        if fast: slow=slow.next
+
         while prev:
-            if front.val!=prev.val:
+            if slow.val!=prev.val:
                 return False
-            front=front.next
+            slow=slow.next
             prev=prev.next
         return True
             
