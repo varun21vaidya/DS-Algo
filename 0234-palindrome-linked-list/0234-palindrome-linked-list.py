@@ -15,7 +15,7 @@ class Solution:
         while temp:
             stack.append(temp.val)            
             temp=temp.next
-        print(stack)
+        # print(stack)
         while head:
             if head.val!=stack.pop():
                 return False
