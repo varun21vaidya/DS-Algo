@@ -14,24 +14,33 @@ class Solution:
 #         # and p2 pointers next will point Null 
 #         # and original p2.next will be head of list, return it
         
-        
+        # if list is empty return
         if not head: return head
+        
         
         p1,p2=head,head
 
+        # but if k is more than length of list
+        # then we need to take mod, ie count of list % k
+        # to get exact iterations of k ie remove extra iterations with mod
+        
+        
+        # get length of linked list
         counter=head
         count=0
         while counter:
             counter=counter.next
             count+=1
-           
+          
+        # if single element in list or count and k are equal or multiple of them ie mod,
+        # return list as it is
         if count==1 or count==k or k%count==0:
             return head
         
+        # remove extra iterations of k if any
         k=k%count
-        print(k)
+        
         # first traverse k steps in list with p1 pointer
-
         while k:
             p1=p1.next
             k-=1
