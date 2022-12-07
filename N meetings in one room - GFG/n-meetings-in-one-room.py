@@ -6,16 +6,14 @@ class Solution:
     #be performed in a meeting room.
     def maximumMeetings(self,n,start,end):
         # code here
-        
-        x= [(start[i], end[i]) for i in range(n)]
-        x= sorted(x, key= lambda k : k[1])
-        # print(x)
+        meetings=[(start[i],end[i]) for i in range(n)]
+        meetings.sort(key= lambda k : k[1])
         count=1
-        last=x[0][1]
+        last=meetings[0][1]
         for i in range(1,n):
-            if last<x[i][0]:
-                last=x[i][1]
+            if meetings[i][0]>last:
                 count+=1
+                last=meetings[i][1]
         return count
             
 
