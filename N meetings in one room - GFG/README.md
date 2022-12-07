@@ -8,7 +8,7 @@ What is the <strong>maximum</strong> number of meetings that can be accommodated
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
-<pre><span style="font-size:18px"><strong>Input:
+<pre style="position: relative;"><span style="font-size:18px"><strong>Input:
 </strong>N = 6
 start[] = {1,3,0,5,8,5}
 end[] =  {2,4,6,7,9,9}
@@ -18,11 +18,11 @@ Explanation:
 </strong>Maximum four meetings can be held with
 given start and end timings.</span>
 <span style="font-size:18px">The meetings are - (1, 2),(3, 4), (5,7) and (8,9)</span>
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><span style="font-size:18px"><strong>Example 2:</strong></span></p>
 
-<pre><span style="font-size:18px"><strong>Input:
+<pre style="position: relative;"><span style="font-size:18px"><strong>Input:
 N</strong> = 3
 <strong>start[]</strong> = {10, 12, 20}
 <strong>end[]</strong> = {20, 25, 30}
@@ -30,7 +30,7 @@ N</strong> = 3
 1<strong>
 Explanation:
 </strong>Only one&nbsp;meetings can be held
-with given start and end timings.</span></pre>
+with given start and end timings.</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><br>
 <span style="font-size:18px"><strong>Your Task</strong>&nbsp;:<br>
