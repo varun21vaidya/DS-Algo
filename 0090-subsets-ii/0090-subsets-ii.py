@@ -1,27 +1,36 @@
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
         
-        def solver(arr,ind, temp):
-            if ind>=n:
-                res.add(tuple(temp))
-                return
-            temp.append(arr[ind])
-            solver(arr,ind+1,temp)
-            temp.pop()
-            solver(arr,ind+1,temp)
+#         def solver(arr,ind, temp):
+#             if ind>=n:
+#                 res.add(tuple(temp))
+#                 return
+#             temp.append(arr[ind])
+#             solver(arr,ind+1,temp)
+#             temp.pop()
+#             solver(arr,ind+1,temp)
             
-        n=len(nums)
-        res=set()
+#         n=len(nums)
+#         res=set()
+#         nums.sort()
+#         solver(nums, 0, [])
+#         return res
+        
+        
+        
+        def solver (arr, ind, temp):
+            res.append(temp[:])
+            for i in range(ind, len(arr)):
+                
+                if i>ind and nums[i]==nums[i-1]:
+                    continue
+                temp.append(arr[i])
+                solver(arr,i+1,temp)
+                temp.pop()
+        res=[]
         nums.sort()
         solver(nums, 0, [])
         return res
-        
-        
-        
-        
-        
-        
-        
         
         
         
