@@ -9,6 +9,9 @@ class Solution:
         # return False
         
         # # Method2:
-        if word.isupper() or word.islower() or word.istitle():
-            return True
-        return False
+        # if word.isupper() or word.islower() or word.istitle():
+        #     return True
+        # return False
+    
+        # # Method 3:
+        return len(word)==1 or word[1:].islower() or word.isupper()
