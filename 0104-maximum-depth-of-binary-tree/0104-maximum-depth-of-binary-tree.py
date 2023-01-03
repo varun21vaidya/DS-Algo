@@ -10,52 +10,29 @@ class Solution:
         def height(root):
             if not root: return 0
             
-            left= height(root.left)
-            right= height(root.right)
+            left=height(root.left)
+            right=height(root.right)
             
-        
             return max(left,right)+1
         
         return height(root)
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-#         def solver(root):
-#             if not root: return 0
-#             if root:
-#                 left= solver(root.left)
-#                 right= solver(root.right)
-                
-#                 return max(left,right)+1
-
             
-#         def solver(root,d):
-#             if not root: return d
-#             return max(solver(root.left,d+1),solver(root.right,d+1))
+            
         
-#         return solver(root,0)
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
