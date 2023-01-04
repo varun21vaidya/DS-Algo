@@ -15,6 +15,7 @@ class Solution:
             elif mapp[freq]%3==0:
                 ans+=mapp[freq]//3
             else:
-                ans+=mapp[freq]//3+1
-        
+                # after using 3s there many be even number remaining whih will be handled by a 2 or there may be 1 remaining which will be handled by reducing one 3 and addding 2 
+                # but any of them requires same count so extra one is used for handling with 2.
+                ans+=mapp[freq]//3+1 
         return ans
