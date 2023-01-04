@@ -17,7 +17,7 @@ class Solution:
             
             right=solver(root.right)
 
-            if left==-1 or right==-1 or abs(left-right)>1:
+            if right==-1 or abs(left-right)>1:
                 return -1
 
             return max(left,right)+1
