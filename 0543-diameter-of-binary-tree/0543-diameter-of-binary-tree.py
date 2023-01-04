@@ -36,6 +36,17 @@ class Solution:
      
     
     
+    
+    
+    # Modification:
+    # as we saw depth calculate function is similar to main funciton
+    # ie we are unnecessarily traversing the tree again in main function
+    # instead we can just store the depth while traversing first time with a variable
+    # and get maximum depth from each node, and
+    # return the maximum length ie addition of  left and right 
+    # TC: O(N) just one recursive function
+    
+    
         def helper(root,maxi):
             if not root: return 0
 
