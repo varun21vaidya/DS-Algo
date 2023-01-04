@@ -13,6 +13,8 @@ class Solution:
                 return 0
 
             left=solver(root.left)
+            if left==-1: return -1
+            
             right=solver(root.right)
 
             if left==-1 or right==-1 or abs(left-right)>1:
