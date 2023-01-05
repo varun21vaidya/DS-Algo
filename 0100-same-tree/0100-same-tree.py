@@ -7,7 +7,7 @@
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         
-
+        # if eiher or both are null check if both are null
         if p==None or q==None:
             return p==q
             
