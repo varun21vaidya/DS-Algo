@@ -11,10 +11,12 @@ class Solution:
             
             if not root: return 0
             
-            left=max(0, solver(root.left,maxi))
-            right=max(0, solver(root.right, maxi))
+            left= solver(root.left,maxi)
+            right=solver(root.right, maxi)
             
-            # max with 0 used to handel negative values
+            # to handel negative values
+            if left<0: left=0
+            if right<0: right=0
                 
             maxi[0]=max(maxi[0], left+right+root.val)
             
