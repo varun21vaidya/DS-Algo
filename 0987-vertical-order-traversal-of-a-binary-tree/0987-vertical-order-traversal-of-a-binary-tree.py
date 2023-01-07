@@ -7,6 +7,8 @@
 class Solution:
     def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
         
+        
+        # # METHOD 1: USING BRUTE FORCE AND DFS
 #         def solver(root, col,level):
 #             if not root: return
             
@@ -43,39 +45,77 @@ class Solution:
 
 # #---------------------------------------------------------------
 
-        # METHOD 2:
+#         # METHOD 2: IMPROVISE DFS
     
 
-        # but its not at all efficient cz two loops + sorted !!
+#         # but its not at all efficient cz two loops + sorted !!
         
-        # so put everything in a single list and we will sort it
+#         # so put everything in a single list and we will sort it
 
-        def solver(root,col,level):
-            if not root: return
+#         def solver(root,col,level):
+#             if not root: return
         
-            temp.append([col,level,root.val])
+#             temp.append([col,level,root.val])
             
-            solver(root.left, col-1,level+1)
-            solver(root.right, col+1,level+1)
+#             solver(root.left, col-1,level+1)
+#             solver(root.right, col+1,level+1)
             
-        temp=[]
+#         temp=[]
         
-        solver(root,0,0)
-        temp.sort()
-        # this is temp structure now: temp= [[col,level,val]]
+#         solver(root,0,0)
         
-        # print(temp)
+#         # as we have already arranged in first col, then level, then root.val
+#         # sorting will take place in same order
+#         temp.sort()
+#         # this is temp structure now: temp= [[col,level,val]]
+        
+#         # print(temp)
             
-        res=[[temp[0][2]]]
-        for i in range(1,len(temp)):
+#         # Create ans format
+#         res=[[temp[0][2]]]
+#         for i in range(1,len(temp)):
+#             # if its same col as before add value to last added col
+#             if temp[i][0]==temp[i-1][0]:
+#                 res[-1].append(temp[i][2])
+            
+#             # else create new col list and add value
+#             else:
+#                 res.append([temp[i][2]])
+                
+#         return res
+    
+# # -------------------------------------------------------------------------
+
+        # METHOD 3: USING BFS
+    
+        ans=[]
+        col,lev=0,0
+        q=deque([[col,lev,root]])
+        # print(q)
+        while q:
+            for i in range(len(q)):
+                col,lev,temp=q.popleft()
+                
+                if temp.left:
+                    q.append([col-1, lev+1,temp.left])
+                if temp.right:
+                    q.append([col+1,lev+1,temp.right])
+                    
+                ans.append([col,lev,temp.val])
+        
+        ans.sort()
+        # print(ans)
+        # # [[-1, 0, 9], [0, 0, 3], [0, 0, 15], [1, 0, 20], [2, 0, 7]]
+        
+        # Create ans format
+        res=[[ans[0][2]]]
+        for i in range(1,len(ans)):
             # if its same col as before add value to last added col
-            if temp[i][0]==temp[i-1][0]:
-                res[-1].append(temp[i][2])
+            if ans[i][0]==ans[i-1][0]:
+                res[-1].append(ans[i][2])
             
             # else create new col list and add value
             else:
-                res.append([temp[i][2]])
+                res.append([ans[i][2]])
                 
         return res
-    
-        
