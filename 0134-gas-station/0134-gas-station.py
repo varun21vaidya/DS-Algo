@@ -1,34 +1,54 @@
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
         
-        # we have to calculate the difference between gas and cost
-        # which means if we can move ahead with current gas and required cost
-        # so first calculate those values and store
-        # then use two variables one to determine current sum and second for index
+       # Method 1: Brute Force O(N*N)
+#         s=0
+#         n=len(gas)
+#         while s<n:
+#             totalcost=gas[s]
+#             for i in range(n):
+#                 if totalcost<cost[(s+i)%n]:
+#                     totalcost=-1
+#                     break
+#                 else:
+#                     totalcost-=cost[(s+i)%n]
+#                     totalcost+=gas[(s+i+1)%n]
+#             if totalcost>=cost[(s+i+1)%n]:
+#                 return s
+#             s+=1
+#         return -1
+            
+    
+    # METHOD 2 : Linear TIME COMPLEXITY O(N)
+    
+        # lets create the diffences at each point
+        # if its sum is negative, then surely we cant go to next station
         
-        arr=[]
-        for i in range(len(gas)):
-            arr.append(gas[i]-cost[i])
-        if sum(arr)<0:
+        difference= [gas[i]-cost[i] for i in range(len(gas))]
+        
+        if sum(difference)<0:
             return -1
         
-        ind, summ=0,-1
-        # now traverse with the arr,
-        # to check if the diff of those gas is greater to complete the circle
-        # if summ is -1, make ind=i
-        # if summ plus current gas is greater than cost 
-        # update summ
-        # if summ is less than 0, make it -1
-        # return pos
-        for i,diff in enumerate(arr):
-            if summ==-1: pos=i
-            
-            if summ+diff>=0:
-                summ+=arr[i]
-            else:
-                summ=-1
-                
-        return pos
-            
-                
+        # now we will traverse the array
+        # and add the diff to total
+        # if at any point total becomes negative,
+        # we can be ensure that the required start point is not before this point
+        # so move start ahead of this point ie i+1
+        # and reset the total
+        # finally return the start point
         
+        
+        start,i, total=0,0,0
+        while i<len(gas): #Traversal 
+            
+            total+=difference[i]
+            
+            if total<0:
+                start=i+1
+                total=0
+                
+            i+=1
+            
+        return start
+            
+            
