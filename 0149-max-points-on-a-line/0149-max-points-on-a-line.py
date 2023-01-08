@@ -8,6 +8,7 @@ class Solution:
         
         # we will store slope and b in hashmap
         # and if its already present increase its count
+        
         result=1
         for i in range(len(points)):
             mapp=Counter()
