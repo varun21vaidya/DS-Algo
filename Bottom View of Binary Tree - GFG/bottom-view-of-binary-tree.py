@@ -2,49 +2,51 @@
 
 class Solution:
     def bottomView(self, root):
-        # import collections
-        # mapp=collections.defaultdict(list)
-        # q=collections.deque([[root,0,0]])
-        # while q:
-        #     for i in range(len(q)):
-        #         temp,col,level=q.popleft()
-    
-        #         if temp.left:
-        #             q.append([temp.left,col-1,level+1])
-        #         if temp.right:
-        #             q.append([temp.right,col+1,level+1])
+        from collections import deque
+        q=deque([[0,0,root]])
+        
+        from collections import defaultdict
+        mapp=defaultdict(list)
+        
+        while q:
+            
+            for i in range(len(q)):
+                col,level,temp=q.popleft()
+                if temp.left:
+                    q.append([col-1,level+1,temp.left])
+                if temp.right:
+                    q.append([col+1,level+1,temp.right])
                 
-        #         if col in mapp:
-        #             if level>=mapp[col][0]:
-        #                 mapp[col]=[level,temp.data]
-        #         else:
-        #             mapp[col]=[level,temp.data]
+                if col in mapp:
+                    if level>=mapp[col][0]:
+                        mapp[col]=[level,temp.data]
+                else:
+                    mapp[col]=[level,temp.data]
+                    
+        
+        return [mapp[x][1] for x in sorted(mapp)]
+
+
     
+        # def topview(root,col,level):
+        #     if not root: return
+    
+        #     if col in mapp:
+        #         if level>=mapp[col][0]:
+        #             mapp[col]=[level,root.data]
+        #     else:
+        #         mapp[col]=[level,root.data]
+    
+        #     topview(root.left,col-1,level+1)
+        #     topview(root.right,col+1,level+1)
+    
+    
+        # from collections import defaultdict
+        # mapp=defaultdict(list)
+        # topview(root,0,0)
         # # print(mapp)
     
         # return [mapp[x][1] for x in sorted(mapp)]
-
-
-    
-        def topview(root,col,level):
-            if not root: return
-    
-            if col in mapp:
-                if level>=mapp[col][0]:
-                    mapp[col]=[level,root.data]
-            else:
-                mapp[col]=[level,root.data]
-    
-            topview(root.left,col-1,level+1)
-            topview(root.right,col+1,level+1)
-    
-    
-        from collections import defaultdict
-        mapp=defaultdict(list)
-        topview(root,0,0)
-        # print(mapp)
-    
-        return [mapp[x][1] for x in sorted(mapp)]
 
 #{ 
  # Driver Code Starts
