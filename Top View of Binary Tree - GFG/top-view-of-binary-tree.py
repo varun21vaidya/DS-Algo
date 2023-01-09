@@ -55,7 +55,7 @@ class Solution:
                     q.append([col+1,level-1,temp.right])
                 
                 if col in mapp:
-                    if level>mapp[col][0]:
+                    if level>=mapp[col][0]:
                         mapp[col]=[level,temp.data]
                 else:
                     mapp[col]=[level,temp.data]
