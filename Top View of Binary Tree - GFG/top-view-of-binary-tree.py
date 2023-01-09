@@ -13,26 +13,68 @@ class Solution:
     #from left to right in Binary Tree.
     def topView(self,root):
         
-        # code here
-        def solver(root,col,level):
-            if not root:
-                return 
+        # # Recursive Way
+        
+        
+        # def solver(root,col,level):
+        #     if not root:
+        #         return 
 
-            if col in mapp:
-                if mapp[col][0]<level:
-                    mapp[col]=[level,root.data]
-            else:
-                mapp[col]=[level,root.data]
+        #     if col in mapp:
+        #         if mapp[col][0]<level:
+        #             mapp[col]=[level,root.data]
+        #     else:
+        #         mapp[col]=[level,root.data]
                 
-            solver(root.left,col-1,level-1)
-            solver(root.right,col+1,level-1)
+        #     solver(root.left,col-1,level-1)
+        #     solver(root.right,col+1,level-1)
            
-        from collections import defaultdict 
+        # from collections import defaultdict 
+        # mapp=defaultdict(list)
+        # col,level=0,0
+        # solver(root,col,level)
+        
+        # return [mapp[x][1] for x in sorted(mapp)]
+        
+        
+        
+        # # Iterative Way
+        from collections import deque
+        q=deque([[0,0,root]])
+        
+        from collections import defaultdict
         mapp=defaultdict(list)
-        col,level=0,0
-        solver(root,col,level)
+        
+        while q:
+            
+            for i in range(len(q)):
+                col,level,temp=q.popleft()
+                if temp.left:
+                    q.append([col-1,level-1,temp.left])
+                if temp.right:
+                    q.append([col+1,level-1,temp.right])
+                
+                if col in mapp:
+                    if level>mapp[col][0]:
+                        mapp[col]=[level,temp.data]
+                else:
+                    mapp[col]=[level,temp.data]
+                    
         
         return [mapp[x][1] for x in sorted(mapp)]
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
