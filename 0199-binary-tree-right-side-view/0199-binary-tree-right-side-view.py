@@ -6,22 +6,8 @@
 #         self.right = right
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
-        
-        def dfs(root,col,level):
-            if not root: return 
-            
-            mapp[level]=[col,root.val]
-                
-            dfs(root.left,col-1,level+1)
-            dfs(root.right, col+1,level+1)
-        
-        mapp=defaultdict(list)
-        dfs(root,0,0)
-        # print(mapp)
-        
-        return [mapp[x][1] for x in mapp]
 
-
+        # Iterative ie BFS: Intuiative
 #         if not root: return
 #         q=deque([root])
 #         ans=[]
@@ -36,3 +22,21 @@ class Solution:
 #             ans.append(temp.val)
 #         return ans
             
+        # Recursive ie DFS 
+        # take col and level ie grid like structure
+        # and as we 
+        def dfs(root,level):
+            if not root: return 
+            
+            mapp[level]=root.val
+                
+            dfs(root.left,level+1)
+            dfs(root.right,level+1)
+        
+        mapp=defaultdict(int)
+        dfs(root,0)
+        # print(mapp)
+        
+        return mapp.values()
+
+        
