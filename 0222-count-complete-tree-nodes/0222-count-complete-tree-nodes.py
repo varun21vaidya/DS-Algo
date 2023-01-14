@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
-        # # OBVIOUS BRUTE FORCE
+        # # OBVIOUS BRUTE FORCE O(N)
         
 #         def dfs(root,res):
 #             if not root:return
@@ -19,6 +19,10 @@ class Solution:
 #         dfs(root,res)
 #         return res[0]
 
+
+    # # For countnodes traverse: O(logN) and for left right traverse O(logN)
+    # # Overall TC: O(logN * logN)
+    
         def goleft(left):
             if not left: return 0
             self.l+=1
