@@ -6,12 +6,29 @@
 #         self.right = right
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
-        lst=[]
-        def helper(root):
-            if root:
-                helper(root.left)
-                lst.append(root.val)
-                helper(root.right)
+        
+        # O(N)
+#         lst=[]
+#         def helper(root):
+#             if root:
+#                 helper(root.left)
+#                 lst.append(root.val)
+#                 helper(root.right)
          
-        helper(root)
-        return len(lst)
+#         helper(root)
+#         return len(lst)
+    
+
+        if not root:
+            return 0
+        leftDepth = self.getDepth(root.left)
+        rightDepth = self.getDepth(root.right)
+        if leftDepth == rightDepth:
+            return pow(2, leftDepth) + self.countNodes(root.right)
+        else:
+            return pow(2, rightDepth) + self.countNodes(root.left)
+
+    def getDepth(self, root):
+        if not root:
+            return 0
+        return 1 + self.getDepth(root.left)
