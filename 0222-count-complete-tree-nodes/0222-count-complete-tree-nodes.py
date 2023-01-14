@@ -6,13 +6,39 @@
 #         self.right = right
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
-        def dfs(root,res):
-            if not root:return
-            res[0]+=1
-            dfs(root.left,res)
-            dfs(root.right,res)
+        # # OBVIOUS BRUTE FORCE
         
-        if not root:return 0
-        res=[0]
-        dfs(root,res)
-        return res[0]
+#         def dfs(root,res):
+#             if not root:return
+#             res[0]+=1
+#             dfs(root.left,res)
+#             dfs(root.right,res)
+        
+#         if not root:return 0
+#         res=[0]
+#         dfs(root,res)
+#         return res[0]
+
+        def goleft(left):
+            if not left: return 0
+            self.l+=1
+            goleft(left.left)
+            
+        def goright(right):
+            if not right: return 
+            self.r+=1
+            goright(right.right) 
+        
+        
+        if not root: return 0
+        self.l,self.r=0,0
+        goleft(root)
+        goright(root)
+        # print(self.l,self.r)
+
+        if self.l==self.r:
+            return (2**self.l)-1
+        else:
+            return 1+ self.countNodes(root.left)+self.countNodes(root.right)
+            
+        
