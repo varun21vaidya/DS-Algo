@@ -3,6 +3,9 @@
 class Solution:
     def minTime(self, root,target):
         # code here
+        
+        
+        
         def getparent(root,parent):
             if not root: return
             
@@ -18,18 +21,21 @@ class Solution:
         visited={target}
         res=0
         
-        self.goal=root
+        goal = root
+    
         def gettotarget(root):
-            if not root: return 
-            if root.data==target:
-                self.goal=root
+            if not root:
+                return
+            if root.data == target:
+                nonlocal goal
+                goal = root
             gettotarget(root.left)
             gettotarget(root.right)
-        
+    
         gettotarget(root)
         # print(self.goal,self.goal.data)
         
-        q=collections.deque([[self.goal,res]])
+        q=collections.deque([[goal,res]])
         while q:
             res=q[0][1]
             node,dist= q.popleft()
