@@ -1,10 +1,10 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        ln = len(s1)
-        mp1 = Counter(s1)
-        for i in range(len(s2) - ln + 1):
-            sb = s2[i:i+ln]
-            if mp1 == collections.Counter(sb):
+        l1,l2= len(s1),len(s2)
+        counts1 = Counter(s1)
+        for i in range(l2 - l1 + 1):
+            counts2=Counter(s2[i:i+l1])
+            if counts1 == counts2:
                 return True
         return False
                 
