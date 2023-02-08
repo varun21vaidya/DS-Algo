@@ -1,5 +1,20 @@
 class Solution:
     def jump(self, nums: List[int]) -> int:
+        mapp={}
+        def helper(index=0):
+            ans=float('inf')
+            if index>=len(nums)-1:
+                return 0
+            if index in mapp:
+                return mapp[index]
+            for i in range(index, index+nums[index]):
+                ans=min(ans,1+helper(i+1))
+            mapp[index]=ans    
+            return ans
+        
+        index=0
+        return helper(index)
+    
         # # greedy
         # i,n=0, len(nums)-1
         # steps=0
@@ -44,10 +59,10 @@ class Solution:
 
 
 
-        n = len(nums)
-        jumps = [n] * n
-        jumps[0] = 0
-        for i in range(n):
-            for j in range(i + 1, min(i + nums[i] + 1, n)):
-                jumps[j] = min(jumps[j], jumps[i] + 1)
-        return jumps[n - 1]
+#         n = len(nums)
+#         jumps = [n] * n
+#         jumps[0] = 0
+#         for i in range(n):
+#             for j in range(i + 1, min(i + nums[i] + 1, n)):
+#                 jumps[j] = min(jumps[j], jumps[i] + 1)
+#         return jumps[n - 1]
