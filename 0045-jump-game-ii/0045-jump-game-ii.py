@@ -1,6 +1,7 @@
 class Solution:
     def jump(self, nums: List[int]) -> int:
         mapp={}
+        @lru_cache()
         def helper(index=0):
             ans=float('inf')
             if index>=len(nums)-1:
