@@ -40,7 +40,7 @@ class Solution:
         # # print(dp)
         # return solver(W,n)
         
-        
+        # DP - BOTTOM UP APPRAOCH
         dp=[[0]*(W+1) for _ in range(n+1)]  
         for row in range(1,n+1):
             for col in range(1,W+1):
