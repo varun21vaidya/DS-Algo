@@ -4,37 +4,37 @@ class Solution:
     def isSubsetSum (self, N, arr, sum):
         # code here 
         
+        # Recursive:
+        
         # def solver(n,w):
-        #     if n==0 or w<0: return False
+        #     if n==0: return False
         #     if w==0: return True
         #     if arr[n-1]<=w:
         #         return solver(n-1, w-arr[n-1]) or solver(n-1,w)
         #     else:
         #         return solver(n-1, w)
-            
-        #     return False
         
         # return solver(N,sum)
         
+
+        
         # def solver(n,w):
-        #     if n==0 or w<0:
-        #         return False
-        #     if w==0:
-        #         dp[n][w]=1
-        #         return True
-                
-        #     if dp[n][w]!=0:
+        #     if n==0: return False
+        #     if w==0: return True
+            
+        #     if dp[n][w]!=-1:
         #         return dp[n][w]
-                
+            
         #     if arr[n-1]<=w:
-        #         dp[n][w]=solver(n-1, w-arr[n-1]) or solver(n-1,w)
+        #         dp[n][w]= solver(n-1, w-arr[n-1]) or solver(n-1,w)
         #     else:
         #         dp[n][w]= solver(n-1, w)
                 
         #     return dp[n][w]
         
-        # dp=[[0 for _ in range(sum+1)] for _ in range(N+1)]
+        # dp=[[-1 for _ in range(sum+1)] for _ in range(N+1)]
         # return solver(N,sum)
+
 
 
         dp=[[0 for _ in range(sum+1)] for _ in range(N+1)]
