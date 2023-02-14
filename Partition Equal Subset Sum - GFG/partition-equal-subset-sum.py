@@ -10,16 +10,21 @@ class Solution:
             if w==0:
                 return 1
             
+            if dp[n][w]!=-1:
+                return dp[n][w]
             if arr[n-1]<=w:
-                return solver(n-1, w-arr[n-1]) or solver(n-1, w)
+                dp[n][w]= solver(n-1, w-arr[n-1]) or solver(n-1, w)
             else:
-                return solver(n-1, w)
+                dp[n][w]= solver(n-1, w)
+            
+            return dp[n][w]
         
         w=sum(arr)
         if w%2==1:
             return False
         else:
             w=w//2
+            dp=[[-1 for _ in range(w+1)]for _ in range(N+1)]
             return solver(N,w)
             
             
