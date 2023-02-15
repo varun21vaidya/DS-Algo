@@ -31,6 +31,10 @@ class Solution:
                     dp[n][w]=x
                 return dp[n][w]
             
+            if w==0:
+                dp[n][w]=0
+                return dp[n][w]
+                
             if dp[n][w]!=float('inf'):
                 return dp[n][w]
             
@@ -45,7 +49,25 @@ class Solution:
         w=W
         dp=[[float('inf') for _ in range(w+1)]for _ in range(n+1)]
         return solver(n,w,dp)
-
+        
+        
+        # # # Bottom Up Appraoch:
+        # dp=[[float('inf') for _ in range(w+1)]for _ in range(n+1)]
+        # W=sum(arr)
+        # w=W
+        # for i in range(n+1):
+        #     for j in range(w+1):
+        #         if i==0:
+        #             x=abs(j-(W-j))
+        #             if dp[i][j]>x:
+        #                 dp[i][j]=x
+                        
+        #         elif arr[i-1]<=j:
+        #             dp[i][j]= min(dp[i-1][j-arr[i-1]],dp[i-1][j])
+        #         else:
+        #             dp[i][j]=dp[i-1][j]
+        
+        # return dp[n][w]
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
