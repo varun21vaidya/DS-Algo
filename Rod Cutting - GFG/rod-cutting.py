@@ -4,6 +4,12 @@ class Solution:
     def cutRod(self, price, N):
         #code here
         
+        # # this is literally same code as unbounded knapsack
+        # # just observe that like knapsack value array here is price array, and N as constant ie weight
+        # # and we are asked max prifit 
+        # # now we need a array which will be compared with N, ie we need rod lengths
+        # # from which we will take prices, so create a length array 
+        
         # # Recurison + Memoization
         # def solver(n,w):
         #     if n==0 or w==0:
