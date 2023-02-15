@@ -24,50 +24,52 @@ class Solution:
     
         # # Memoization
         
-        def solver(n,w,dp):
-            if n==0:
-                x=abs(w-(W-w))
-                if dp[n][w]>x:
-                    dp[n][w]=x
-                return dp[n][w]
+        # def solver(n,w,dp):
+        #     if n==0:
+        #         x=abs(w-(W-w))
+        #         if dp[n][w]>x:
+        #             dp[n][w]=x
+        #         return dp[n][w]
             
-            if w==0:
-                dp[n][w]=0
-                return dp[n][w]
+        #     if w==0:
+        #         dp[n][w]=0
+        #         return dp[n][w]
                 
-            if dp[n][w]!=float('inf'):
-                return dp[n][w]
+        #     if dp[n][w]!=float('inf'):
+        #         return dp[n][w]
             
-            if arr[n-1]<=w:
-                dp[n][w]= min(solver(n-1,w-arr[n-1],dp), solver(n-1,w,dp))
-            else:
-                dp[n][w]= solver(n-1,w,dp)
+        #     if arr[n-1]<=w:
+        #         dp[n][w]= min(solver(n-1,w-arr[n-1],dp), solver(n-1,w,dp))
+        #     else:
+        #         dp[n][w]= solver(n-1,w,dp)
             
-            return dp[n][w]
+        #     return dp[n][w]
         
-        W=sum(arr)
-        w=W
-        dp=[[float('inf') for _ in range(w+1)]for _ in range(n+1)]
-        return solver(n,w,dp)
+        # W=sum(arr)
+        # w=W
+        # dp=[[float('inf') for _ in range(w+1)]for _ in range(n+1)]
+        # return solver(n,w,dp)
         
         
         # # # Bottom Up Appraoch:
-        # dp=[[float('inf') for _ in range(w+1)]for _ in range(n+1)]
-        # W=sum(arr)
-        # w=W
-        # for i in range(n+1):
-        #     for j in range(w+1):
-        #         if i==0:
-        #             x=abs(j-(W-j))
-        #             if dp[i][j]>x:
-        #                 dp[i][j]=x
+        W=sum(arr)
+        w=W
+        dp=[[float('inf') for _ in range(w+1)]for _ in range(n+1)]
+        for i in range(n+1):
+            for j in range(w+1):
+                if i==0:
+                    x=abs(j-(W-j))
+                    if dp[i][j]>x:
+                        dp[i][j]=x
+                # if j==0:
+                #     dp[i][j]=0
                         
-        #         elif arr[i-1]<=j:
-        #             dp[i][j]= min(dp[i-1][j-arr[i-1]],dp[i-1][j])
-        #         else:
-        #             dp[i][j]=dp[i-1][j]
+                elif arr[i-1]<=j:
+                    dp[i][j]= min(dp[i-1][j-arr[i-1]],dp[i-1][j])
+                else:
+                    dp[i][j]=dp[i-1][j]
         
-        # return dp[n][w]
+        return dp[n][w]
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
