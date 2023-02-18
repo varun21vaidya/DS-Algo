@@ -7,13 +7,15 @@
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         
-        def traverse(root):
-            if not root: return
-
-            root.left,root.right=root.right,root.left
-
-            self.invertTree(root.left)
-            self.invertTree(root.right)
-        
-        traverse(root)
+        def solver(root):
+            if  root:
+                temp=root.left
+                root.left=root.right
+                root.right=temp
+                solver(root.left)
+                solver(root.right)
+            
+            
+    
+        solver(root)
         return root
