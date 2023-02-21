@@ -16,26 +16,40 @@ class Solution:
         
         # return solver(x,y)
         
-        # # -------------------------------------
+        # # # -------------------------------------
         
-        def solver(x,y):
-            if x==0 or y==0:
-                return 0
+        # def solver(x,y):
+        #     if x==0 or y==0:
+        #         return 0
         
-            if dp[x][y]!=-1:
-                return dp[x][y]
+        #     if dp[x][y]!=-1:
+        #         return dp[x][y]
                 
-            if s1[x-1] == s2[y-1]:
-                dp[x][y]= 1+ solver(x-1,y-1)
+        #     if s1[x-1] == s2[y-1]:
+        #         dp[x][y]= 1+ solver(x-1,y-1)
                 
-            else:
-                dp[x][y]= max(solver(x,y-1), solver(x-1,y))
+        #     else:
+        #         dp[x][y]= max(solver(x,y-1), solver(x-1,y))
                 
-            return dp[x][y]
+        #     return dp[x][y]
         
-        dp=[[-1 for _ in range(y+1)] for _ in range(x+1)]
-        return solver(x,y)
+        # dp=[[-1 for _ in range(y+1)] for _ in range(x+1)]
+        # return solver(x,y)
 
+        # # --------------------------------------
+        
+        dp=[[0 for _ in range(y+1)] for _ in range(x+1)]
+        for i in range(x+1):
+            for j in range(y+1):
+                if i==0 or j==0:
+                    dp[i][j]=0
+                elif s1[i-1] == s2[j-1]:
+                    dp[i][j]= 1+ dp[i-1][j-1]
+                else:
+                    dp[i][j]= max(dp[i-1][j],dp[i][j-1])
+            
+        return dp[x][y]
+            
 
 #{ 
  # Driver Code Starts
