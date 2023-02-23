@@ -43,7 +43,9 @@ class Solution:
             return dp[x][y]
         
         dp=[["" for _ in range(len(text2)+1)] for _ in range(len(text1)+1)]
-        return len(solver(len(text1),len(text2)))
+        x=solver(len(text1),len(text2))
+        print(x)
+        return(len(x))
 
 
         # Tabulation:
