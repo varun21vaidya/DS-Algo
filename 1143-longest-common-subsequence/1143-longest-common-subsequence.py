@@ -30,6 +30,4 @@ class Solution:
             return dp[x][y]
         
         dp=[[-1 for _ in range(len(text2)+1)] for _ in range(len(text1)+1)]
-        solver(len(text1),len(text2))
-        # print(dp) 
-        return dp[-1][-1]
+        return solver(len(text1),len(text2))
