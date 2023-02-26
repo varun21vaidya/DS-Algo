@@ -18,26 +18,44 @@ class Solution:
 
 #         return solver(word1,len(word1),word2, len(word2))
 
-        def solver(word1,i,word2, j):
-            if i==0:
-                dp[i][j]= j
-            elif j==0:
-                dp[i][j]= i
+#         def solver(word1,i,word2, j):
+#             if i==0:
+#                 dp[i][j]= j
+#             elif j==0:
+#                 dp[i][j]= i
             
-            elif dp[i][j]!=-1:
-                return dp[i][j]
+#             elif dp[i][j]!=-1:
+#                 return dp[i][j]
             
-            elif word1[i-1]==word2[j-1]:
-                dp[i][j]= solver(word1,i-1,word2,j-1)
+#             elif word1[i-1]==word2[j-1]:
+#                 dp[i][j]= solver(word1,i-1,word2,j-1)
             
-            else:
-                insert=solver(word1,i,word2, j-1)
-                replace=solver(word1,i-1,word2, j-1)
-                delete=solver(word1,i-1,word2, j)
+#             else:
+#                 insert=solver(word1,i,word2, j-1)
+#                 replace=solver(word1,i-1,word2, j-1)
+#                 delete=solver(word1,i-1,word2, j)
 
-                dp[i][j]= min(insert, replace, delete)+1
+#                 dp[i][j]= min(insert, replace, delete)+1
             
-            return dp[i][j]
+#             return dp[i][j]
+
+#         dp=[[-1 for _ in range(len(word2)+1)] for _ in range(len(word1)+1)]
+#         return solver(word1,len(word1),word2, len(word2))
+
 
         dp=[[-1 for _ in range(len(word2)+1)] for _ in range(len(word1)+1)]
-        return solver(word1,len(word1),word2, len(word2))
+        for i in range(len(word1)+1):
+            for j in range(len(word2)+1):
+                if i==0:
+                    dp[i][j]=j
+                elif j==0:
+                    dp[i][j]=i
+                elif word1[i-1]==word2[j-1]:
+                    dp[i][j]=dp[i-1][j-1]
+                else:
+                    insert=dp[i][j-1]
+                    replace=dp[i-1][j-1]
+                    delete=dp[i-1][j]
+                    dp[i][j]=min(insert,replace,delete)+1
+                
+        return dp[-1][-1]
