@@ -1,19 +1,43 @@
 class Solution:
-    def minDistance(self, word1, word2):
-        """Dynamic programming solution"""
-        m = len(word1)
-        n = len(word2)
-        table = [[0] * (n + 1) for _ in range(m + 1)]
+    def minDistance(self, word1: str, word2: str) -> int:
+        
+#         def solver(word1,i,word2, j):
+#             if i==0:
+#                 return j
+#             elif j==0:
+#                 return i
+            
+#             elif word1[i-1]==word2[j-1]:
+#                 return solver(word1,i-1,word2,j-1)
+            
+#             insert=solver(word1,i,word2, j-1)
+#             replace=solver(word1,i-1,word2, j-1)
+#             delete=solver(word1,i-1,word2, j)
+            
+#             return min(insert, replace, delete)+1
 
-        for i in range(m + 1):
-            table[i][0] = i
-        for j in range(n + 1):
-            table[0][j] = j
+#         return solver(word1,len(word1),word2, len(word2))
 
-        for i in range(1, m + 1):
-            for j in range(1, n + 1):
-                if word1[i - 1] == word2[j - 1]:
-                    table[i][j] = table[i - 1][j - 1]
-                else:
-                    table[i][j] = 1 + min(table[i - 1][j], table[i][j - 1], table[i - 1][j - 1])
-        return table[-1][-1]
+        def solver(word1,i,word2, j):
+            if i==0:
+                dp[i][j]= j
+            elif j==0:
+                dp[i][j]= i
+            
+            elif dp[i][j]!=-1:
+                return dp[i][j]
+            
+            elif word1[i-1]==word2[j-1]:
+                dp[i][j]= solver(word1,i-1,word2,j-1)
+            
+            else:
+                insert=solver(word1,i,word2, j-1)
+                replace=solver(word1,i-1,word2, j-1)
+                delete=solver(word1,i-1,word2, j)
+
+                dp[i][j]= min(insert, replace, delete)+1
+            
+            return dp[i][j]
+
+        dp=[[-1 for _ in range(len(word2)+1)] for _ in range(len(word1)+1)]
+        return solver(word1,len(word1),word2, len(word2))
