@@ -5,6 +5,8 @@
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        
+        # brute force, (not recommended), convert linked list to array and perform merge sort 
 #         def mergesort(arr):
 #             if len(arr)<=1:
 #                 return arr
@@ -59,7 +61,7 @@ class Solution:
 #         return lltoarr(lists)
         
     
-    
+        # with just LInkedList as Expected
         def mergesort(lists):
             if not lists: return None
             if len(lists)==1:
