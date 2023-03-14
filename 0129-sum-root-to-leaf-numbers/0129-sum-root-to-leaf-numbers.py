@@ -27,13 +27,28 @@ class Solution:
 #         solver([], root)
 #         return summ
         
-    
-        def solver(root,summ):
-            if not root:
-                return 0
-            summ=summ*10+root.val
-            if not root.left and not root.right:
-                return summ
-            return solver(root.left,summ)+ solver(root.right,summ)
+#         # shorter and cleaner
+#         def solver(root,summ):
+#             if not root:
+#                 return 0
+#             summ=summ*10+root.val
+#             if not root.left and not root.right:
+#                 return summ
+#             return solver(root.left,summ)+ solver(root.right,summ)
         
-        return solver(root,0)
+#         return solver(root,0)
+    
+        # iterative
+        q,total = deque([(root,0)]),0
+        while q:
+            root, summ= q.pop()
+            summ= summ*10+ root.val
+            if not root.left and not root.right:
+                total+=summ
+            if root.right:
+                q.append((root.right,summ))
+            if root.left:
+                q.append((root.left, summ))
+            
+        return total
+            
