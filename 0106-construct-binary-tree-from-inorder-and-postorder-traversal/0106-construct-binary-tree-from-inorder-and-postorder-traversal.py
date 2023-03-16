@@ -27,8 +27,8 @@ class Solution:
         def solver(inst,inend,postst, postend):
             if postst>postend:
                 return None
-            if postst==postend:
-                return TreeNode(postorder[postend])
+            # if postst==postend:
+            #     return TreeNode(postorder[postend])
             
             root=TreeNode(postorder[postend])
             ind= inorder.index(root.val)
