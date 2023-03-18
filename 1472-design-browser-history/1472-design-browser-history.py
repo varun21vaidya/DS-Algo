@@ -62,6 +62,9 @@
 #             self.ind=len(self.store)-1
 #         return self.store[self.ind]
 
+
+# DOUBLY LINKED LIST: 
+
 class Node:
     def __init__(self,value):
         self.data=value
