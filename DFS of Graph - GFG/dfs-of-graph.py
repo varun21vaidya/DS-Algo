@@ -6,18 +6,16 @@ class Solution:
     def dfsOfGraph(self, V, adj):
         # code here
         def solver(elem):
+            bfs.append(elem)
+            vis.add(elem)
             for item in adj[elem]:
                 if item not in vis:
-                    bfs.append(item)
-                    vis.add(item)
                     solver(item)
                     
             return bfs
 
         bfs=[]
         vis=set()
-        bfs.append(0)
-        vis.add(0)
         return solver(0)
 #{ 
  # Driver Code Starts
