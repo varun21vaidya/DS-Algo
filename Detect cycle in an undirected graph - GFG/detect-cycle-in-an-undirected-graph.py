@@ -8,30 +8,31 @@ class Solution:
 		
 		
 		# # DFS: Reursive Approach
-		
-		def dfs(elem,src):
-		    vis.add(elem)
-		    for item in adj[elem]:
-		        
-		        
-		        if item!=src:
-		            # if item is in visited but its not parent/source return True
-		            if item in vis:
-		                return True
-		                
-    		        # if item is not visited recursively traverse with that node 
-		            if dfs(item,elem):
-		                return True
-    		            
-		    return False
-		            
-		
-		vis=set()
-		for i in range(V):
-		    if i not in vis:
-		        if dfs(i,-1):
-		            return True
-		return False
+
+        def dfs(elem,src):
+            vis.add(elem)
+            # traverse thourgh elem adj list
+            for item in adj[elem]:
+                if item!=src:
+
+                    # if item is vis, and its not source,
+                    # it must be part of cycle
+                    if item in vis:
+                        return True
+                    
+                    else:
+                    # if next iteration returns true, 
+                    # return True for all previous calls
+                        if dfs(item,elem):
+                            return True
+            return False
+        
+        vis=set()
+        for i in range(V):
+            if i not in vis:
+                if dfs(i,-1):
+                    return True
+        return False
 		
 	    
 	    # # BFS: level order traversal
