@@ -4,7 +4,39 @@ class Solution:
     #Function to detect cycle in an undirected graph.
 	def isCycle(self, V: int, adj: List[List[int]]) -> bool:
 		#Code here
+		
+		
+		
+		# # DFS: Reursive Approach
+		
+		def dfs(elem,src):
+		    vis.add(elem)
+		    for item in adj[elem]:
+		        
+		        
+		        if item!=src:
+		            # if item is in visited but its not parent/source return True
+		            if item in vis:
+		                return True
+		                
+    		        # if item is not visited recursively traverse with that node 
+		            if dfs(item,elem):
+		                return True
+    		            
+		    return False
+		            
+		
+		vis=set()
+		for i in range(V):
+		    if i not in vis:
+		        if dfs(i,-1):
+		            return True
+		return False
+		
 	    
+	    # # BFS: level order traversal
+	    # # Traverse from different directions and if we reach a node
+	    # # which is already visited, its a cycle
 
         # for handling various components, use a function 
         # for detecting a component has cycle or not
