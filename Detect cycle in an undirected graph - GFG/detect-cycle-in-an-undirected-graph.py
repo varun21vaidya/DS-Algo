@@ -5,32 +5,41 @@ class Solution:
 	def isCycle(self, V: int, adj: List[List[int]]) -> bool:
 		#Code here
 	    
-	    def detectCycle(src):
-	        
-    	    q= deque([])
-    		vis.add(src)
-    		q.append((src,-1))
-    		
-    		while q:
-    		    elem, source= q.popleft()
-    		    
-    		    for item in adj[elem]:
-    		        if item!=source:
-    		            if item in vis:
-    		                return True
-    		            q.append((item,elem))
-    		            vis.add(item)
-    		            
-    		            
-    		return False
-    		
-    	vis=set()
-    	for i in range(V):
-    	    if i not in vis:
-    	        if detectCycle(i)==True:
-    	            return True
-    	return False
 
+        # for handling various components, use a function 
+        # for detecting a component has cycle or not
+        # so even if one component has cycle, graph has cycle
+
+        def detectCycle(src):
+            q=deque([])
+            q.append((src,-1))
+            vis.add(src)
+            while q:
+                elem,source= q.popleft()
+                
+                for item in adj[elem]:
+                    
+                    # move only if item is not source
+                    # ie dont return to where you came from
+                    if item!=source:
+
+                        # if item is in vis, we have already
+                        # visited this item by some other direction
+                        # ie this is part of cycle, return True
+                        if item in vis:
+                            return True
+
+                        q.append((item,elem))
+                        vis.add(item)
+            return False
+
+        
+        vis=set()
+        for i in range(V):
+            if i not in vis:
+                if detectCycle(i):
+                    return True
+        return False
 
 #{ 
  # Driver Code Starts
