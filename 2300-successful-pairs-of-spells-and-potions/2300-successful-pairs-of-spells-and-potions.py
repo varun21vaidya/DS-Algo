@@ -17,19 +17,19 @@ class Solution:
             low,high=0,len(potions)
             while low<high:
                 mid=low+(high-low)//2
-                if potions[mid]>target:
-                    high=mid-1
+                if potions[mid]>=target:
+                    high=mid
                 else:
                     low=mid+1
-            print(low)
+            
             return low
         
         res=[0]*len(spells)
         l=len(potions)
         potions.sort()
         for s, spell in enumerate(spells):
-            # x=binarySearch(potions,(success+spell-1)/spell)
-            x= bisect_left(potions,ceil(success/spell))
+            x=binarySearch(potions,ceil(success/spell))
+            # x= bisect_left(potions,ceil(success/spell))
             res[s]= l-x
             
         return res
