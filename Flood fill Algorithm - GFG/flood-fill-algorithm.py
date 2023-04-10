@@ -2,48 +2,59 @@ from collections import deque
 class Solution:
 	def floodFill(self, image, sr, sc, newColor):
 		# Code here
-		def dfs(i,j, vis, clone, newclr,fillPoint):
-		    
-		    vis.add((i,j))
-		    clone[i][j]=newclr
-            
-            drow= [-1,0, 1,0]
-            dcol= [0,1,0,-1]
-            for d in range(4):
-                row,col= drow[d]+i, dcol[d]+j
 
-                if row>=0 and row<m and col>=0 and col<n and clone[row][col]==fillPoint and (row,col) not in vis:
-                    dfs(row,col,vis,clone,newclr,fillPoint)
-                    
-                    
+        # we will use dfs
+        def dfs(i, j, vis, clone, newclr, fillPoint):
+
+            vis.add((i, j))
+            clone[i][j] = newclr
+
+            drow = [-1, 0, 1, 0]
+            dcol = [0, 1, 0, -1]
+
+            for d in range(4):
+                row, col = drow[d]+i, dcol[d]+j
+
+                if row >= 0 and col >= 0 and row < m and col < n and clone[row][col] == fillPoint and (row, col) not in vis:
+                    dfs(row, col, vis, clone, newclr, fillPoint)
+
+        # use bfs 
         def bfs(i,j,vis,clone,newclr,fillPoint):
-            
+
             vis.add((i,j))
             clone[i][j]=newclr
-            
-            q= deque()
+
+            drow=[-1,0,1,0]
+            dcol=[0,1,0,-1]
+
+            q=deque()
             q.append((i,j))
-            drow= [-1,0, 1,0]
-            dcol= [0,1,0,-1]
-            
+
             while q:
                 r,c= q.popleft()
+
                 for d in range(4):
-                    row,col=drow[d]+r, dcol[d]+c
-                    
+                    row,col=drow[d]+r,dcol[d]+c
+
                     if row>=0 and row<m and col>=0 and col<n and clone[row][col]==fillPoint and (row,col) not in vis:
                         q.append((row,col))
                         vis.add((row,col))
                         clone[row][col]=newclr
-            
-            
-            
-        # flood fill should be filled only for all the values of as starting point
-        m,n=len(image), len(image[0])
-        fillPoint= image[sr][sc]
-        clone= image[:]
-        vis=set()
-        bfs(sr,sc,vis,clone, newColor,fillPoint)
+
+        # Notice the line that the points that we need to change should be same as starting point
+        # ideally we should not change given input, so we use clone
+        clone = image[:]
+
+        vis = set()
+        m, n = len(image), len(image[0])
+
+        # only these values will be changed with newColor
+        fillPoint = image[sr][sc]
+        
+        # dfs(sr, sc, vis, clone, newColor, fillPoint)
+        bfs(sr, sc, vis, clone, newColor, fillPoint)
+
+  
         return clone
         
         
