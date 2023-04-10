@@ -1,3 +1,4 @@
+from collections import deque
 class Solution:
 	def floodFill(self, image, sr, sc, newColor):
 		# Code here
@@ -13,14 +14,43 @@ class Solution:
 
                 if row>=0 and row<m and col>=0 and col<n and clone[row][col]==fillPoint and (row,col) not in vis:
                     dfs(row,col,vis,clone,newclr,fillPoint)
-                
+                    
+                    
+        def bfs(i,j,vis,clone,newclr,fillPoint):
+            
+            vis.add((i,j))
+            clone[i][j]=newclr
+            
+            q= deque()
+            q.append((i,j))
+            drow= [-1,0, 1,0]
+            dcol= [0,1,0,-1]
+            
+            while q:
+                r,c= q.popleft()
+                for d in range(4):
+                    row,col=drow[d]+r, dcol[d]+c
+                    
+                    if row>=0 and row<m and col>=0 and col<n and clone[row][col]==fillPoint and (row,col) not in vis:
+                        q.append((row,col))
+                        vis.add((row,col))
+                        clone[row][col]=newclr
+            
+            
+            
         # flood fill should be filled only for all the values of as starting point
         m,n=len(image), len(image[0])
         fillPoint= image[sr][sc]
         clone= image[:]
         vis=set()
-        dfs(sr,sc,vis,clone, newColor,fillPoint)
+        bfs(sr,sc,vis,clone, newColor,fillPoint)
         return clone
+        
+        
+        
+        
+        
+        
 #{ 
  # Driver Code Starts
 import sys
