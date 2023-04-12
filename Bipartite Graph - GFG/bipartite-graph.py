@@ -2,7 +2,7 @@ from collections import deque
 class Solution:
 	def isBipartite(self, V, adj):
 
-        def bfs(start, color):
+        def bfs(start):
 
             q = deque()
             q.append(start)
@@ -21,7 +21,7 @@ class Solution:
 
             return True
 
-
+        
         def dfs(node, clr):
             color[node] = clr
 
@@ -44,9 +44,9 @@ class Solution:
 
         for i in range(V):
             if color[i] == -1:
-                # if not bfs(i,color): return False
-                if not dfs(i, 0):
-                    return False
+                if not bfs(i): return False
+                # if not dfs(i, 0):
+                #     return False
 
         return True
 	       
