@@ -1,47 +1,51 @@
 from collections import deque
 class Solution:
 	def isBipartite(self, V, adj):
-		#code here
-		
-		# bfs mehtod
-		
-		def bfs(start):
-    		q=deque()
-    		q.append(start)
-    		color[start]=0
-    		
-    		while q:
-    		    elem= q.popleft()
-    		    
-    		    for item in adj[elem]:
-    		        
-    		        if color[item]==-1:
-    		            color[item]=not color[elem] # opposite color of original color
-    		            q.append(item)
-    		            
-    		        elif color[item]==color[elem]: # # if color is already there and its same as adjecent return False
-    		            return False
-    		      
+
+        def bfs(start, color):
+
+            q = deque()
+            q.append(start)
+
+            while q:
+                node = q.popleft()
+
+                for item in adj[node]:
+
+                    if color[item] == -1:
+                        color[item] = not color[node]
+                        q.append(item)
+
+                    elif color[item] == color[node]:
+                        return False
+
             return True
-            
-        def dfs(elem, clr):
-            color[elem]= clr
-		    for item in adj[elem]:
-		        if color[item]==-1:
-		            if not dfs(item,not clr): return False
-		            
-		        elif color[item]==clr: # # if color is already there and its same as adjecent return False
-		            return False
-		  
+
+
+        def dfs(node, clr):
+            color[node] = clr
+
+            for item in adj[node]:
+                if color[item] == -1:
+                    if not dfs(item, not clr):
+                        return False
+
+                elif color[item] == color[node]:
+                    return False
+
             return True
-            
-	    color=[-1]*V  
-	    vis=set()
-	    for i in range(V):
-	        if color[i]==-1:
-                # if not bfs(i): return False
-                
-                if not dfs(i,0):
+
+        # define a color array to maintain the track of colors of each node
+        # if two adjecent nodes have same color return False
+        color = [-1]*V
+
+        # to handle multiple components we use a for loop and traversal.
+        # if any node has -1 its not traversed yet so run traversal through it.
+
+        for i in range(V):
+            if color[i] == -1:
+                # if not bfs(i,color): return False
+                if not dfs(i, 0):
                     return False
 
         return True
