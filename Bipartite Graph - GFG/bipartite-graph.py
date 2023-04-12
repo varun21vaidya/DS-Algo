@@ -24,12 +24,26 @@ class Solution:
     		      
             return True
             
-        
+        def dfs(elem, clr):
+            color[elem]= clr
+		    for item in adj[elem]:
+		        if color[item]==-1:
+		            if not dfs(item,not clr): return False
+		            
+		        elif color[item]==clr: # # if color is already there and its same as adjecent return False
+		            return False
+		  
+            return True
+            
 	    color=[-1]*V  
+	    vis=set()
 	    for i in range(V):
 	        if color[i]==-1:
-                if not bfs(i): return False
-        
+                # if not bfs(i): return False
+                
+                if not dfs(i,0):
+                    return False
+
         return True
 	       
 		
