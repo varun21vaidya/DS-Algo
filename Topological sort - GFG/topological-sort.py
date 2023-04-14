@@ -1,33 +1,73 @@
+from collections import deque
 class Solution:
     
     #Function to return list containing vertices in Topological order.
     def topoSort(self, V, adj):
         # Code here
         
-        def dfs(node):
-            vis.add(node)
+        # Kahn's Algorithm:
+            
+        # first calculate indegrees
+        indegree=[0]*V
+        for v in range(V):
+            for item in adj[v]:
+                indegree[item]+=1
+        
+        # print(indegree)
+        
+        # add zero degree vertices to queue
+        res=[] # final sorted ans
+        q= deque()
+        for v in range(V):
+            if indegree[v]==0:
+                q.append(v)
+                res.append(v)
+                
+        # BFS
+        while q:
+            node = q.popleft()
             
             for item in adj[node]:
-                if item not in vis:
-                    dfs(item)
+                indegree[item]-=1
+                if indegree[item]==0:
+                    q.append(item)
+                    res.append(item)
                 
-            stack.append(node)
+        # print(res)
+        return res
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        # def dfs(node):
+        #     vis.add(node)
+            
+        #     for item in adj[node]:
+        #         if item not in vis:
+        #             dfs(item)
+                
+        #     stack.append(node)
             
             
             
     
-        vis=set()
-        stack=[]
+        # vis=set()
+        # stack=[]
         
-        for i in range(V): # 0 1 2... 8
-            if i not in vis:
-                dfs(i)
+        # for i in range(V): # 0 1 2... 8
+        #     if i not in vis:
+        #         dfs(i)
                 
-        res=[]
-        for i in range(V):
-            res.append(stack.pop())
+        # res=[]
+        # for i in range(V):
+        #     res.append(stack.pop())
             
-        return res
+        # return res
 
 
 #{ 
