@@ -6,34 +6,34 @@ class Solution:
         # Code here
         
         # Kahn's Algorithm:
-            
-        # first calculate indegrees
+
+
+        # first create indegree array
         indegree=[0]*V
+
         for v in range(V):
             for item in adj[v]:
                 indegree[item]+=1
         
-        # print(indegree)
-        
-        # add zero degree vertices to queue
-        res=[] # final sorted ans
-        q= deque()
+        # create queue and resultant array
+        q=deque()
+        res=[]
+
+        # first we need to add zero based indegree vertices to queue and result
         for v in range(V):
             if indegree[v]==0:
                 q.append(v)
                 res.append(v)
-                
-        # BFS
+
         while q:
-            node = q.popleft()
+            node= q.popleft()
             
             for item in adj[node]:
                 indegree[item]-=1
                 if indegree[item]==0:
                     q.append(item)
                     res.append(item)
-                
-        # print(res)
+
         return res
         
         
