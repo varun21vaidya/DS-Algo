@@ -8,46 +8,10 @@ class Solution:
         # this is similar to graph and especially topological sort
         # so logically if there are no cycles, we can complete tasks
         
-        # def dfs(node):
-        #     vis[node]=2
-            
-        #     for item in adj[node]:
-        #         if vis[item]==0:
-        #             if dfs(item): return True
-                    
-        #         if vis[item]==2:
-        #             return True
-                    
-        #     stack.append(node)
-        #     vis[node]=1
-        #     return False
-
-        # stack=[]
-        # vis=[0]*N
-        # adj=defaultdict(list)
-        
-        # # create adj list
-        # for i,j in prerequisites:
-        #     adj[i].append(j)
-        # for node in range(N):
-        #     if node not in adj:
-        #         adj[node]=[]
-        # print(adj)
-        # # for i in range(N):
-        # #     if vis[i]==0:
-        # #         if dfs(i): return False
-        # # # print(stack)   
-        # # return True
-                
-                
-        adj=defaultdict(list)
-        
-        # create adj list
-        for i,j in prerequisites:
+        # first create adjecency list 
+        adj=[[] for i in range(N)]
+        for i , j in prerequisites:
             adj[i].append(j)
-        for node in range(N):
-            if node not in adj:
-                adj[node]=[]
         # print(adj)
 
                 
