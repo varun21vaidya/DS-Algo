@@ -5,44 +5,56 @@ from typing import List
 class Solution:
     def shortestPath(self, n : int, m : int, edges : List[List[int]]) -> List[int]:
         
-        
-        def dfs(node):
-            vis.add(node)
-            
-            for it in adj[node]:
-                item=it[0]
-                if item not in vis:
-                    dfs(item)
-                    
-            stack.append(node)
-        
+        # now if the graph is acyclic graph, to calculate shortest distance
+        # we will use TOPO Sort and after getting stack as in case of dfs, 
+        # we will traverse and get minimum value for each item
+        # ie compare existing dis value and value at current node + current wt
+        # return the array with each item having shortest distance, 
+        # if some item is non-rechable use -1
+
+        # first convert edges into adjecent list
         
         adj=[[] for _ in range(n)]
-        for v,it,wt in edges:
-            adj[v].append([it,wt])
-        # print(adj)
-        
+        for v,item, wt in edges:
+            adj[v].append([item,wt])
+
+        # now calculate the topo sort
+        def dfs(node):
+            vis.add(node)
+            for item in adj[node]:
+                it = item[0]
+                if it not in vis:
+                    dfs(it)
+            
+            stack.append(node)
+
         vis=set()
         stack=[]
-        
         for i in range(n):
             if i not in vis:
                 dfs(i)
-                
-        res=[float('inf')]*n
-        res[0]=0
+
+
+        distArr=[float('inf')]*n
+
+        # distance from source to source is obviously zero
+        distArr[0]=0
+
         while stack:
             node=stack.pop()
-            for item,wt in adj[node]:
-                if res[item]>res[node]+wt:
-                    res[item]=res[node]+wt
-            
-        for i in range(n):
-            if res[i]==float('inf'):
-                res[i]=-1
+
+            for it,wt in adj[node]:
+                if distArr[it]>distArr[node]+wt:
+                    distArr[it]=distArr[node]+wt
+
         
-        return res
-            
+
+        # if there are still dist unreachable ie infinity reset them to -1
+        for i in range(n):
+            if distArr[i]==float('inf'):
+                distArr[i]=-1
+        
+        return distArr
 
 #{ 
  # Driver Code Starts
