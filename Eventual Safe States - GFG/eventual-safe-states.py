@@ -8,35 +8,36 @@ class Solution:
         # we will reverse the direction of pairs so terminal nodes become, indegreee
         # and the cycle part will not be considered in topo sort.
         
-        revadj=[[] for _ in range(V)]
+        # reverse the adj list ie all the edges which were initially outwards will be come inward
+        # and vice versa, then those vertices which were terminal node will become indegree=0 as no incoming.
+        # now by making it indegree = 0, we can use topological sort and exclude those vertices with cycle
+        # either part of it or supporting it, so every else remaining node will be part of ans.
+        
+
+        revadj=[[]for _ in range(V)]
+        indegree=[0]*V
         for v in range(V):
             for item in adj[v]:
                 revadj[item].append(v)
-                
-        indegree=[0]*V
-        for v in range(V):
-            for item in revadj[v]:
-                indegree[item]+=1
-            
-        q=deque()
+                indegree[v]+=1
+
+        q= deque()
         res=[]
         for v in range(V):
             if indegree[v]==0:
                 q.append(v)
-                res.append(v)
-
-        
+    
         while q:
-            node = q.popleft()
+            node= q.popleft()
+            res.append(node)
+
             for item in revadj[node]:
                 indegree[item]-=1
                 if indegree[item]==0:
                     q.append(item)
-                    res.append(item)
-                   
-        res.sort() 
+
+        res.sort()
         return res
-    
     
     
     
