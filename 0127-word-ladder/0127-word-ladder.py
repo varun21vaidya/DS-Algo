@@ -11,7 +11,7 @@ class Solution:
             for letters in words:
                 alphabetsSet.add(letters)
         alphabets="".join(alphabetsSet)
-        print(alphabets)
+        # print(alphabets)
         
         while q:
             
