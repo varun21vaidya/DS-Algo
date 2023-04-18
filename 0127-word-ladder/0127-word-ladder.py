@@ -5,7 +5,13 @@ class Solution:
         q=deque()
         q.append([beginWord,1])
         wordlist.discard(beginWord)
-        alphabets="abcdefghijklmnopqrstuvwxyz"
+        # alphabets="abcdefghijklmnopqrstuvwxyz"
+        alphabetsSet=set()
+        for words in wordlist:
+            for letters in words:
+                alphabetsSet.add(letters)
+        alphabets="".join(alphabetsSet)
+        print(alphabets)
         
         while q:
             
