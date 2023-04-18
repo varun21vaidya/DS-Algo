@@ -7,7 +7,7 @@ class Solution:
 		    
 		    q=deque()
 		    q.append([startWord,1])
-		    
+		    wordlist.discard(startWord)
 		    while q:
 		        word,count= q.popleft()
 		        if word==targetWord:
