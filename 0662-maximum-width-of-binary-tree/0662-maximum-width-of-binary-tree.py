@@ -7,16 +7,18 @@
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         
-        maxwd=0
-        q= deque([[root,1]])
+        q=deque()
+        q.append([root,1])
+        maxwidth=0
         while q:
-            first,last=q[0][1],q[-1][1]
-            for i in range(len(q)):
-                temp,val=q.popleft()
-                if temp.left: q.append([temp.left,val*2])
-                if temp.right: q.append([temp.right,(val*2)+1])
-            maxwd=max(maxwd,last-first+1)
-        
-        return maxwd
-
+            first,last=q[0][1], q[-1][1]
+            for _ in range(len(q)):
+                node,count=q.popleft()
+                if node.left: q.append([node.left,count*2])
+                if node.right: q.append([node.right,count*2+1])
+                    
+            maxwidth=max(maxwidth, last-first+1)
             
+        return maxwidth
+                    
+        
