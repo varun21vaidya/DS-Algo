@@ -6,10 +6,14 @@ class Solution:
         
         def countSet(num):
             count=0
-            x = bin(elem)[2:] #num =4 ==> 0b0100
-            for val in x:
-                if val=="1":
-                    count+=1
+            # x = bin(elem)[2:] #num =4 ==> 0b0100
+            # for val in x:
+            #     if val=="1":
+            #         count+=1
+            
+            while num&(num-1)>0:
+                count+=1
+                num=num&(num-1)
             
             return count
                 
@@ -53,7 +57,6 @@ class Solution:
         # sortedarray= []
         
         sortedarray = sorted(temp,key = lambda k : k[1], reverse=True)
-
         arr[:] = [pair[0] for pair in sortedarray]
         
         return arr
